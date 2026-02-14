@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同会社ReCorta - Wildlife Conservation through AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-dark: #1a3a2e;
+            --forest-mid: #2d5a47;
+            --moss: #4a7c59;
+            --sage: #88a89a;
+            --sand: #f4f1ea;
+            --clay: #d4a574;
+            --terracotta: #c47854;
+            --carbon: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--carbon);
+            background: var(--sand);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(244,241,234,0.98) 0%, rgba(244,241,234,0.8) 100%);
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--forest-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .logo .rc {
+            color: var(--terracotta);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--forest-dark);
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--terracotta);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--terracotta);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(212,165,116,0.15) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-5%, 5%) rotate(2deg); }
+            50% { transform: translate(-10%, -5%) rotate(-2deg); }
+            75% { transform: translate(-5%, -10%) rotate(1deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--forest-dark);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: var(--forest-mid);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.03em;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--moss);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--forest-dark);
+            color: var(--sand);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.9s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--terracotta);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 58, 46, 0.3);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeIn 1.2s ease 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .meaning-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .meaning-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--terracotta);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .meaning-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+        }
+
+        .meaning-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--forest-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .meaning-card p {
+            color: var(--moss);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 8rem 4rem;
+            background: var(--forest-dark);
+            color: var(--sand);
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .founders {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .founder-card {
+            background: rgba(244, 241, 234, 0.05);
+            padding: 3rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(244, 241, 234, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .founder-card:hover {
+            background: rgba(244, 241, 234, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .founder-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--clay);
+        }
+
+        .founder-card .role {
+            font-size: 1.1rem;
+            color: var(--sage);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .founder-card p {
+            line-height: 1.8;
+            color: var(--sand);
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--carbon);
+            color: var(--sage);
+            padding: 3rem 4rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 2rem 3rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .founders {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-section {
+                padding: 4rem 2rem;
+            }
+
+            .about-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-text .description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><span class="rc">RC</span>eCorta</div>
+        <ul>
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#about">会社概要</a></li>
+            <li><a href="https://wildcatcher.recorta.jp" target="_blank">WildCatcher</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>野生の未来を、<br>AIで切り拓く</h1>
+                <p class="subtitle">合同会社ReCorta</p>
+                <p class="description">
+                    野生動植物の保護活動を支援し、AI技術で時間削減と効率化を実現します。トレイルカメラの膨大な画像から必要なものだけを切り取り、研究者の負担を軽減します。
+                </p>
+                <a href="https://wildcatcher.recorta.jp" class="cta-button" target="_blank">WildCatcherを見る →</a>
+            </div>
+            <div class="hero-visual">
+                <div class="meaning-cards">
+                    <div class="meaning-card" style="animation-delay: 1s;">
+                        <h3>Recorta</h3>
+                        <p>スペイン語で「切り取る」を意味する造語。トレイルカメラの誤検知から、必要な画像だけを切り取ります。</p>
+                    </div>
+                    <div class="meaning-card" style="animation-delay: 1.2s;">
+                        <h3>RC = Red Conservation</h3>
+                        <p>レッドリストに載る絶滅危惧種を守り、野生動植物の繁栄を支援したいという想い。</p>
+                    </div>
+                    <div class="meaning-card" style="animation-delay: 1.4s;">
+                        <h3>時間削減</h3>
+                        <p>AI自動化サービスにより、研究者の作業時間を大幅に削減し、本質的な研究に集中できる環境を提供します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>創業者</h2>
+            <div class="founders">
+                <div class="founder-card">
+                    <h3>Diego Alonso</h3>
+                    <p class="role">共同創業者 / 開発責任者</p>
+                    <p>
+                        WildCatcherの開発者として、AI技術を活用した野生動物調査支援システムを構築。機械学習とコンピュータビジョンの専門知識を活かし、研究者の作業効率を革新的に向上させるソリューションを提供しています。
+                    </p>
+                </div>
+                <div class="founder-card">
+                    <h3>会頭 辰巳</h3>
+                    <p class="role">共同創業者 / セールス責任者</p>
+                    <p>
+                        営業戦略とビジネス開発を担当。野生動物保護団体や研究機関とのパートナーシップを構築し、ReCorたのビジョンを広く社会に伝える役割を担っています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 合同会社ReCorta. All rights reserved.</p>
+    </footer>
+</body>
+</html>
