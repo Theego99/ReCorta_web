@@ -4,117 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>会社概要 - 合同会社ReCorta</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --forest-deep: #0b1a13;
-            --forest-mid: #2d5a47;
-            --sand: #f9f7f2;
-            --terracotta: #c47854;
-            --white: #ffffff;
-            --text-main: #2c3e50;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--sand); color: var(--text-main); line-height: 1.8; }
-        h1, h2 { font-family: 'Noto Serif JP', serif; }
-
-        /* Navigation (Same as Index) */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 1.5rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); z-index: 1000;
-            border-bottom: 1px solid rgba(45,90,71,0.1);
-        }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--forest-deep); text-decoration: none; }
-        .logo span { color: var(--terracotta); }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.9rem; }
-
-        /* Page Header */
-        .page-header { padding: 10rem 10% 4rem; background: var(--forest-deep); color: var(--white); text-align: center; }
-        .page-header h1 { font-size: 2.5rem; letter-spacing: 0.1em; }
-
-        /* Company Table */
-        .container { max-width: 1000px; margin: 0 auto; padding: 6rem 5%; }
-        .info-table { width: 100%; border-collapse: collapse; margin-bottom: 6rem; background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .info-table th { width: 30%; background: #fdfcf9; text-align: left; padding: 1.5rem; border-bottom: 1px solid #eee; color: var(--forest-mid); font-weight: bold; }
+    <link rel="stylesheet" href="style.css"> <style>
+        /* (前述の共通スタイルをここに含めるか、外部ファイル化してください) */
+        /* 以下、固有スタイル */
+        .page-header { padding: 8rem 10% 3rem; background: var(--forest-deep); color: var(--white); text-align: center; }
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 5%; }
+        .info-table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .info-table th { width: 30%; background: #fdfcf9; text-align: left; padding: 1.5rem; border-bottom: 1px solid #eee; color: var(--forest-mid); }
         .info-table td { padding: 1.5rem; border-bottom: 1px solid #eee; }
-
-        /* Profile Cards */
-        .profile-section h2 { text-align: center; margin-bottom: 3rem; font-size: 2rem; }
-        .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 6rem; }
-        .profile-card { background: var(--white); padding: 3rem; border-top: 4px solid var(--terracotta); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .profile-card .role { color: var(--terracotta); font-weight: bold; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
-        .profile-card h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
-        .profile-card p { font-size: 0.95rem; color: #555; }
-
-        footer { background: var(--forest-deep); color: var(--white); padding: 3rem; text-align: center; }
-
-        @media (max-width: 768px) {
-            .founder-grid { grid-template-columns: 1fr; }
-            .info-table th { width: 40%; font-size: 0.9rem; }
-        }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="logo"><span>R</span>eCorta</a>
         <ul>
             <li><a href="index.html">ホーム</a></li>
             <li><a href="about.html">会社概要</a></li>
-            <li><a href="https://www.wildcatcher.jp/" target="_blank">WildCatcher</a></li>
+            <li><a href="service.html">サービス</a></li>
+            <li><a href="team.html">人物紹介</a></li>
+            <li><a href="history.html">沿革</a></li>
         </ul>
     </nav>
-
-    <header class="page-header">
-        <h1>ABOUT US</h1>
-    </header>
-
+    <header class="page-header"><h1>ABOUT US</h1></header>
     <div class="container">
         <table class="info-table">
             <tr><th>商号</th><td>合同会社 ReCorta（レコルタ）</td></tr>
-            <tr><th>設立</th><td>2026年4月1日（令和8年）</td></tr>
-            <tr><th>代表社員 / CEO</th><td>辰巳 海斗</td></tr>
-            <tr><th>最高技術責任者 / CTO</th><td>Diego Alonso</td></tr>
+            <tr><th>設立</th><td>2026年4月1日</td></tr>
+            <tr><th>代表社員</th><td>辰巳 海斗 / Diego Alonso</td></tr>
             <tr><th>資本金</th><td>100,000円</td></tr>
             <tr><th>事業内容</th><td>ソフトウェアの開発・販売</td></tr>
-            <tr><th>従業員数</th><td>2名（2026年4月1日時点）</td></tr>
-            <tr><th>本社所在地</th><td>東京都西東京市 〇〇</td></tr>
+            <tr><th>所在地</th><td>東京都西東京市 〇〇</td></tr>
         </table>
-
-        <section class="profile-section">
-            <h2>役員紹介</h2>
-            <div class="founder-grid">
-                <div class="profile-card">
-                    <span class="role">CEO / 代表取締役社長</span>
-                    <h3>辰巳 海斗</h3>
-                    <p>営業戦略とビジネス開発の責任者として、ReCortaのビジョンを推進。野生動物保護団体や研究機関とのパートナーシップを構築し、現場の声を技術へ繋ぐ役割を担う。持続可能な共生社会の実現に向け、社会的インパクトの最大化に尽力している。</p>
-                </div>
-                <div class="profile-card">
-                    <span class="role">CTO / 最高技術責任者</span>
-                    <h3>Diego Alonso</h3>
-                    <p>WildCatcherの開発者。機械学習とコンピュータビジョンの専門知識を活かし、AI技術を活用した野生動物調査支援システムをゼロから構築。高精度かつ、現場での使いやすさを徹底的に追求したソリューション開発を統括する。</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="history-section">
-            <h2 style="text-align: center; margin-bottom: 3rem;">沿革</h2>
-            <table class="info-table">
-                <tr><th>2024年10月</th><td>研究・開発プロジェクト始動</td></tr>
-                <tr><th>2025年9月</th><td>NHK「ダーウィンが来た！」にて技術協力・紹介</td></tr>
-                <tr><th>2026年4月</th><td>合同会社ReCorta 設立</td></tr>
-            </table>
-        </section>
     </div>
-
-    <footer>
-        <p>&copy; 2026 ReCorta LLC. All rights reserved.</p>
-    </footer>
-
+    <footer><p>&copy; 2026 ReCorta LLC.</p></footer>
 </body>
 </html>
