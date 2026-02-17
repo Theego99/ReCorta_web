@@ -6,440 +6,115 @@
     <title>会社概要 - 合同会社ReCorta</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --forest-dark: #1a3a2e;
+            --forest-deep: #0b1a13;
             --forest-mid: #2d5a47;
-            --moss: #4a7c59;
-            --sage: #88a89a;
-            --sand: #f4f1ea;
-            --clay: #d4a574;
+            --sand: #f9f7f2;
             --terracotta: #c47854;
-            --carbon: #1a1a1a;
+            --white: #ffffff;
+            --text-main: #2c3e50;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--sand); color: var(--text-main); line-height: 1.8; }
+        h1, h2 { font-family: 'Noto Serif JP', serif; }
 
-        body {
-            font-family: 'IBM Plex Sans', sans-serif;
-            color: var(--carbon);
-            background: var(--sand);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
+        /* Navigation (Same as Index) */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 2rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: linear-gradient(180deg, rgba(244,241,234,0.98) 0%, rgba(244,241,234,0.8) 100%);
-            backdrop-filter: blur(10px);
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); z-index: 1000;
+            border-bottom: 1px solid rgba(45,90,71,0.1);
         }
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--forest-deep); text-decoration: none; }
+        .logo span { color: var(--terracotta); }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.9rem; }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--forest-dark);
-            letter-spacing: -0.02em;
-            text-decoration: none;
-        }
+        /* Page Header */
+        .page-header { padding: 10rem 10% 4rem; background: var(--forest-deep); color: var(--white); text-align: center; }
+        .page-header h1 { font-size: 2.5rem; letter-spacing: 0.1em; }
 
-        .logo .rc {
-            color: var(--terracotta);
-        }
+        /* Company Table */
+        .container { max-width: 1000px; margin: 0 auto; padding: 6rem 5%; }
+        .info-table { width: 100%; border-collapse: collapse; margin-bottom: 6rem; background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .info-table th { width: 30%; background: #fdfcf9; text-align: left; padding: 1.5rem; border-bottom: 1px solid #eee; color: var(--forest-mid); font-weight: bold; }
+        .info-table td { padding: 1.5rem; border-bottom: 1px solid #eee; }
 
-        nav ul {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
+        /* Profile Cards */
+        .profile-section h2 { text-align: center; margin-bottom: 3rem; font-size: 2rem; }
+        .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 6rem; }
+        .profile-card { background: var(--white); padding: 3rem; border-top: 4px solid var(--terracotta); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .profile-card .role { color: var(--terracotta); font-weight: bold; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
+        .profile-card h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .profile-card p { font-size: 0.95rem; color: #555; }
 
-        nav a {
-            text-decoration: none;
-            color: var(--forest-dark);
-            font-weight: 400;
-            font-size: 0.95rem;
-            letter-spacing: 0.02em;
-            position: relative;
-            transition: color 0.3s ease;
-        }
+        footer { background: var(--forest-deep); color: var(--white); padding: 3rem; text-align: center; }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--terracotta);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--terracotta);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Header */
-        .page-header {
-            padding: 12rem 4rem 6rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-mid) 100%);
-            color: var(--sand);
-        }
-
-        .page-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-
-        .page-header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Main Content */
-        .content-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 4rem;
-        }
-
-        .mission {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
-
-        .mission h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--forest-dark);
-            margin-bottom: 2rem;
-        }
-
-        .mission p {
-            font-size: 1.2rem;
-            line-height: 1.9;
-            color: var(--moss);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .company-name-story {
-            background: white;
-            padding: 4rem;
-            border-radius: 12px;
-            margin-bottom: 6rem;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-        }
-
-        .company-name-story h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--forest-dark);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .name-meanings {
-            display: grid;
-            gap: 2.5rem;
-        }
-
-        .name-meaning {
-            padding: 2rem;
-            border-left: 4px solid var(--terracotta);
-            background: var(--sand);
-        }
-
-        .name-meaning h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--forest-dark);
-            margin-bottom: 1rem;
-        }
-
-        .name-meaning .spanish {
-            color: var(--terracotta);
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .name-meaning p {
-            color: var(--moss);
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        /* Founders Section */
-        .founders-section {
-            background: var(--forest-dark);
-            padding: 6rem 4rem;
-            margin: 6rem 0;
-        }
-
-        .founders-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .founders-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--sand);
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-
-        .founders-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .founder-profile {
-            background: rgba(244, 241, 234, 0.05);
-            padding: 3rem;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(244, 241, 234, 0.1);
-            transition: all 0.4s ease;
-        }
-
-        .founder-profile:hover {
-            background: rgba(244, 241, 234, 0.08);
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-        }
-
-        .founder-profile h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--clay);
-            margin-bottom: 0.5rem;
-        }
-
-        .founder-profile .name-sub {
-            font-size: 1.1rem;
-            color: var(--sage);
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .founder-profile .role {
-            font-size: 1.15rem;
-            color: var(--terracotta);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .founder-profile p {
-            color: var(--sand);
-            line-height: 1.9;
-            font-size: 1.05rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .expertise {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(244, 241, 234, 0.2);
-        }
-
-        .expertise h4 {
-            color: var(--clay);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
-        }
-
-        .expertise ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .expertise li {
-            color: var(--sage);
-            padding: 0.4rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .expertise li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--terracotta);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--carbon);
-            color: var(--sage);
-            padding: 3rem 4rem;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            nav {
-                padding: 1.5rem 2rem;
-            }
-
-            .page-header {
-                padding: 8rem 2rem 4rem;
-            }
-
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .content-section {
-                padding: 4rem 2rem;
-            }
-
-            .company-name-story {
-                padding: 2rem;
-            }
-
-            .founders-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .founders-section {
-                padding: 4rem 2rem;
-            }
+        @media (max-width: 768px) {
+            .founder-grid { grid-template-columns: 1fr; }
+            .info-table th { width: 40%; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
+
     <nav>
-        <a href="index.html" class="logo"><span class="rc">RC</span>eCorta</a>
+        <a href="index.html" class="logo"><span>RC</span>eCorta</a>
         <ul>
             <li><a href="index.html">ホーム</a></li>
             <li><a href="about.html">会社概要</a></li>
-            <li><a href="https://wildcatcher.recorta.jp" target="_blank">WildCatcher</a></li>
+            <li><a href="https://www.wildcatcher.jp/" target="_blank">WildCatcher</a></li>
         </ul>
     </nav>
 
     <header class="page-header">
-        <h1>会社概要</h1>
-        <p>About ReCorta</p>
+        <h1>ABOUT US</h1>
     </header>
 
-    <main class="content-section">
-        <section class="mission">
-            <h2>私たちのミッション</h2>
-            <p>
-                野生動植物の保護活動を支援し、レッドリストに載る絶滅危惧種の繁栄を後押しすることが私たちの使命です。AI技術を活用した自動化サービスにより、研究者の時間を削減し、より本質的な研究活動に集中できる環境を提供します。
-            </p>
-        </section>
+    <div class="container">
+        <table class="info-table">
+            <tr><th>商号</th><td>合同会社 ReCorta（レコルタ）</td></tr>
+            <tr><th>設立</th><td>2026年4月1日（令和8年）</td></tr>
+            <tr><th>代表社員 / CEO</th><td>辰巳 海斗</td></tr>
+            <tr><th>最高技術責任者 / CTO</th><td>Diego Alonso</td></tr>
+            <tr><th>資本金</th><td>100,000円</td></tr>
+            <tr><th>事業内容</th><td>ソフトウェアの開発・販売</td></tr>
+            <tr><th>従業員数</th><td>2名（2026年4月1日時点）</td></tr>
+            <tr><th>本社所在地</th><td>東京都西東京市 〇〇</td></tr>
+        </table>
 
-        <section class="company-name-story">
-            <h2>社名の由来</h2>
-            <div class="name-meanings">
-                <div class="name-meaning">
-                    <h3>ReCorta（レコルタ）</h3>
-                    <p class="spanish">スペイン語「recortar」（切り取る）の造語化</p>
-                    <p>
-                        トレイルカメラで撮影された膨大な画像の中から、誤検知を除き、本当に必要な野生動物の画像だけを「切り取る」。研究者が求める情報だけを抽出し、効率的な調査を実現します。
-                    </p>
+        <section class="profile-section">
+            <h2>役員紹介</h2>
+            <div class="founder-grid">
+                <div class="profile-card">
+                    <span class="role">CEO / 代表取締役社長</span>
+                    <h3>辰巳 海斗</h3>
+                    <p>営業戦略とビジネス開発の責任者として、ReCortaのビジョンを推進。野生動物保護団体や研究機関とのパートナーシップを構築し、現場の声を技術へ繋ぐ役割を担う。持続可能な共生社会の実現に向け、社会的インパクトの最大化に尽力している。</p>
                 </div>
-                <div class="name-meaning">
-                    <h3>RC = Red Conservation</h3>
-                    <p class="spanish">レッドリストの保護活動</p>
-                    <p>
-                        大文字の「RC」には、Red Conservation（レッドリスト保護）という意味を込めています。絶滅危惧種を守り、野生動植物が繁栄できる未来を目指す、私たちの強い想いを表現しています。
-                    </p>
-                </div>
-                <div class="name-meaning">
-                    <h3>Recorta = 削減</h3>
-                    <p class="spanish">時間削減・効率化</p>
-                    <p>
-                        スペイン語の「recortar」には「削減する」という意味もあります。AI自動化により作業時間を大幅に削減し、研究者が創造的な研究活動により多くの時間を使えるようサポートします。
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <section class="founders-section">
-        <div class="founders-container">
-            <h2>創業者</h2>
-            <div class="founders-grid">
-                <div class="founder-profile">
+                <div class="profile-card">
+                    <span class="role">CTO / 最高技術責任者</span>
                     <h3>Diego Alonso</h3>
-                    <p class="name-sub">ディエゴ・アロンソ</p>
-                    <p class="role">共同創業者 / 開発責任者</p>
-                    <p>
-                        WildCatcherの開発者として、AI技術を活用した野生動物調査支援システムを一から構築。機械学習とコンピュータビジョンの専門知識を活かし、研究者の作業効率を革新的に向上させるソリューションを提供しています。
-                    </p>
-                    <p>
-                        トレイルカメラの画像解析という課題に対し、最新のディープラーニング技術を応用し、高精度な動物検出・分類システムを実現。研究現場のニーズを深く理解し、使いやすさと精度の両立を追求しています。
-                    </p>
-                    <div class="expertise">
-                        <h4>専門分野</h4>
-                        <ul>
-                            <li>機械学習・ディープラーニング</li>
-                            <li>コンピュータビジョン</li>
-                            <li>AI画像解析システム開発</li>
-                            <li>フルスタック開発</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="founder-profile">
-                    <h3>会頭 辰巳</h3>
-                    <p class="name-sub">かいとう たつみ / Kaito Tatsumi</p>
-                    <p class="role">共同創業者 / セールス責任者</p>
-                    <p>
-                        営業戦略とビジネス開発を担当し、ReCorたのビジョンを広く社会に伝える役割を担っています。野生動物保護団体や研究機関とのパートナーシップを構築し、持続可能な保護活動のエコシステムを創造しています。
-                    </p>
-                    <p>
-                        研究者や保護活動家のニーズを深く理解し、WildCatcherがどのように現場の課題を解決できるかを丁寧に伝えています。ビジネスの成長と野生動物保護の両立を目指し、社会的インパクトの最大化に尽力しています。
-                    </p>
-                    <div class="expertise">
-                        <h4>専門分野</h4>
-                        <ul>
-                            <li>ビジネス開発・戦略</li>
-                            <li>パートナーシップ構築</li>
-                            <li>営業・マーケティング</li>
-                            <li>ステークホルダーエンゲージメント</li>
-                        </ul>
-                    </div>
+                    <p>WildCatcherの開発者。機械学習とコンピュータビジョンの専門知識を活かし、AI技術を活用した野生動物調査支援システムをゼロから構築。高精度かつ、現場での使いやすさを徹底的に追求したソリューション開発を統括する。</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="history-section">
+            <h2 style="text-align: center; margin-bottom: 3rem;">沿革</h2>
+            <table class="info-table">
+                <tr><th>2024年10月</th><td>研究・開発プロジェクト始動</td></tr>
+                <tr><th>2025年9月</th><td>NHK「ダーウィンが来た！」にて技術協力・紹介</td></tr>
+                <tr><th>2026年4月</th><td>合同会社ReCorta 設立</td></tr>
+            </table>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2026 合同会社ReCorta. All rights reserved.</p>
+        <p>&copy; 2026 ReCorta LLC. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
