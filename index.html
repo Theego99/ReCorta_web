@@ -9,18 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --forest-deep: #0b1a13;
-            --forest-mid: #2d5a47;
-            --moss: #4a7c59;
-            --sand: #f9f7f2;
-            --terracotta: #c47854;
-            --white: #ffffff;
-            --text-main: #2c3e50;
+            --forest-deep: #0b1a13; --forest-mid: #2d5a47; --moss: #4a7c59;
+            --sand: #f9f7f2; --terracotta: #c47854; --white: #ffffff; --text-main: #2c3e50;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--sand); color: var(--text-main); line-height: 1.8; }
         h1, h2, h3 { font-family: 'Noto Serif JP', serif; }
 
+        /* Navigation */
         nav {
             position: fixed; top: 0; width: 100%; padding: 1.5rem 5%;
             display: flex; justify-content: space-between; align-items: center;
@@ -29,8 +25,8 @@
         }
         .logo { font-size: 1.5rem; font-weight: 900; color: var(--forest-deep); text-decoration: none; }
         .logo span { color: var(--terracotta); }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
-        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.85rem; font-weight: 500; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
         nav a:hover { color: var(--terracotta); }
 
         .hero {
@@ -39,13 +35,14 @@
             color: var(--white); padding: 0 10%;
         }
         .hero-content { max-width: 800px; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 1.5rem; }
         .btn { display: inline-block; padding: 1rem 2.5rem; background: var(--terracotta); color: var(--white); text-decoration: none; font-weight: bold; transition: 0.4s; }
 
+        .section-tag { color: var(--terracotta); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 1rem; text-align: center; }
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 5rem; color: var(--forest-deep); }
         .philosophy { padding: 8rem 10%; background: var(--white); }
-        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 4rem; }
-        .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-        
+        .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+
         footer { background: var(--forest-deep); color: var(--white); padding: 3rem; text-align: center; }
     </style>
 </head>
@@ -64,12 +61,13 @@
     <section class="hero">
         <div class="hero-content">
             <h1>野生の未来を、<br>AIで切り拓く。</h1>
-            <p>データ処理の効率化を通じて、調査の質と継続性を支える基盤を構築します。</p><br>
-            <a href="about.html" class="btn">私たちについて</a>
+            <p>データ処理の効率化を通じて、調査の質と継続性を支える基盤を構築します。</p>
+            <a href="service.html" class="btn">サービスを見る</a>
         </div>
     </section>
 
     <section class="philosophy">
+        <span class="section-tag">MISSION</span>
         <h2 class="section-title">私たちの理念</h2>
         <div class="philosophy-grid">
             <div class="p-card">
@@ -78,13 +76,11 @@
             </div>
             <div class="p-card">
                 <h3>現場の「見えない負担」</h3>
-                <p>調査現場では膨大な画像が日々蓄積されていますが、その確認作業は人手に依存しています。私たちはこれをAIで解消します。</p>
+                <p>調査現場では膨大な画像が日々蓄積されていますが、その確認作業は人手に依存しています。</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 ReCorta LLC.</p>
-    </footer>
+    <footer><p>&copy; 2026 ReCorta LLC. All rights reserved.</p></footer>
 </body>
 </html>

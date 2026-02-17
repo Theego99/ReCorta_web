@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>沿革 - 合同会社ReCorta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
     <style>
-        /* 共通スタイル省略 */
-        .page-header { padding: 8rem 10% 3rem; background: var(--forest-deep); color: #fff; text-align: center; }
-        .container { max-width: 900px; margin: 0 auto; padding: 4rem 5%; }
-        .history-table { width: 100%; border-collapse: collapse; margin-bottom: 4rem; }
-        .history-table th { width: 25%; text-align: left; padding: 1rem; border-bottom: 1px solid #ddd; }
-        .history-table td { padding: 1rem; border-bottom: 1px solid #ddd; }
+        :root { --forest-deep: #0b1a13; --sand: #f9f7f2; --terracotta: #c47854; --white: #ffffff; --text-main: #2c3e50; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--sand); color: var(--text-main); line-height: 1.8; }
+        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(45,90,71,0.1); }
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--forest-deep); text-decoration: none; }
+        .logo span { color: var(--terracotta); }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.9rem; }
+        .page-header { padding: 10rem 10% 4rem; background: var(--forest-deep); color: var(--white); text-align: center; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 6rem 5%; }
+        .info-table { width: 100%; border-collapse: collapse; background: var(--white); }
+        .info-table th { width: 30%; padding: 1.5rem; border-bottom: 1px solid #eee; text-align: left; color: var(--terracotta); }
+        .info-table td { padding: 1.5rem; border-bottom: 1px solid #eee; }
+        footer { background: var(--forest-deep); color: var(--white); padding: 3rem; text-align: center; }
     </style>
 </head>
 <body>
@@ -26,14 +35,16 @@
     </nav>
     <header class="page-header"><h1>HISTORY</h1></header>
     <div class="container">
-        <table class="history-table">
+        <table class="info-table">
             <tr><th>2024年10月</th><td>研究・開発プロジェクト始動</td></tr>
-            <tr><th>2025年9月</th><td>NHK「ダーウィンが来た！」にて技術協力</td></tr>
+            <tr><th>2025年9月</th><td>NHK「ダーウィンが来た！」にて技術協力・紹介</td></tr>
             <tr><th>2026年4月</th><td>合同会社ReCorta 設立</td></tr>
         </table>
         
-        <h3>Future Plans</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div style="margin-top: 5rem;">
+            <h3>未来展望</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
     </div>
     <footer><p>&copy; 2026 ReCorta LLC.</p></footer>
 </body>

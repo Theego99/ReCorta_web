@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サービス - 合同会社ReCorta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
     <style>
-        /* 共通ナビ・フッタースタイル省略（上記と同じ） */
-        .page-header { padding: 8rem 10% 3rem; background: var(--forest-deep); color: #fff; text-align: center; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 5%; }
-        .product-box { background: var(--forest-deep); color: white; padding: 3rem; border-radius: 8px; margin-bottom: 4rem; }
-        .lorem-section { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .lorem-card { background: #fff; padding: 2rem; border: 1px solid #ddd; }
-        .btn-small { display: inline-block; padding: 0.5rem 1.5rem; background: var(--terracotta); color: white; text-decoration: none; margin-top: 1rem; }
+        :root { --forest-deep: #0b1a13; --sand: #f9f7f2; --terracotta: #c47854; --white: #ffffff; --text-main: #2c3e50; --forest-mid: #2d5a47; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--sand); color: var(--text-main); line-height: 1.8; }
+        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(45,90,71,0.1); }
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--forest-deep); text-decoration: none; }
+        .logo span { color: var(--terracotta); }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.9rem; }
+        .page-header { padding: 10rem 10% 4rem; background: var(--forest-deep); color: var(--white); text-align: center; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 6rem 5%; }
+        .product-box { background: var(--forest-deep); color: var(--white); padding: 4rem; border-radius: 4px; margin-bottom: 6rem; }
+        .client-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .client-card { background: var(--white); padding: 2.5rem; border-left: 5px solid var(--forest-mid); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        footer { background: var(--forest-deep); color: var(--white); padding: 3rem; text-align: center; }
     </style>
 </head>
 <body>
@@ -30,18 +38,18 @@
         <div class="product-box">
             <h2>WildCatcher</h2>
             <p>完全オフライン動作のAI野生動物調査ソフトウェア。通信環境に依存せず、機微な調査情報を保護しながら、目的の生物データを瞬時に抽出します。</p>
-            <a href="https://www.wildcatcher.jp/" class="btn-small" target="_blank">公式サイトへ</a>
+            <br><a href="https://www.wildcatcher.jp/" style="color:var(--terracotta); font-weight:bold;" target="_blank">製品サイトはこちら →</a>
         </div>
 
-        <h3>その他の展開</h3>
-        <div class="lorem-section">
-            <div class="lorem-card">
-                <h4>AI Consulting</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <h2 style="text-align:center; margin-bottom:3rem;">導入実績</h2>
+        <div class="client-grid">
+            <div class="client-card">
+                <h4>佐護ヤマネコ稲作研究会</h4>
+                <p>ツシマヤマネコ生息調査に伴い、大量の撮影データから対象個体を効率的に抽出するために導入。</p>
             </div>
-            <div class="lorem-card">
-                <h4>Data Analysis</h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+            <div class="client-card">
+                <h4>NHK ダーウィンが来た！</h4>
+                <p>番組内のツシマヤマネコ密着撮影において、画像解析システムが採用。2025年9月に紹介されました。</p>
             </div>
         </div>
     </div>
