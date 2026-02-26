@@ -4,48 +4,271 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>沿革 - 合同会社ReCorta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root { --forest-deep: #0b1a13; --sand: #f9f7f2; --terracotta: #c47854; --white: #ffffff; --text-main: #2c3e50; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--sand); color: var(--text-main); line-height: 1.8; }
-        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(45,90,71,0.1); }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--forest-deep); text-decoration: none; }
-        .logo span { color: var(--terracotta); }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.9rem; }
-        .page-header { padding: 10rem 10% 4rem; background: var(--forest-deep); color: var(--white); text-align: center; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 6rem 5%; }
-        .info-table { width: 100%; border-collapse: collapse; background: var(--white); }
-        .info-table th { width: 30%; padding: 1.5rem; border-bottom: 1px solid #eee; text-align: left; color: var(--terracotta); }
-        .info-table td { padding: 1.5rem; border-bottom: 1px solid #eee; }
-        footer { background: var(--forest-deep); color: var(--white); padding: 3rem; text-align: center; }
+        /* Timeline */
+        .timeline-section {
+            padding: 6rem 5%;
+            background: var(--sand);
+        }
+        .timeline-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin-top: 4rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--terracotta), var(--forest-light), transparent);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3.5rem;
+            padding-left: 1rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 8px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--sand);
+            border: 3px solid var(--terracotta);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            background: var(--terracotta);
+            box-shadow: 0 0 0 6px rgba(196, 120, 84, 0.15);
+        }
+        .timeline-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--forest-deep);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content {
+            background: var(--white);
+            padding: 2rem 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.4s ease;
+        }
+        .timeline-item:hover .timeline-content {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+        .timeline-content h3 {
+            font-size: 1.05rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .timeline-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-top: 0.8rem;
+            transition: gap 0.3s ease;
+        }
+        .timeline-link:hover { gap: 0.8rem; }
+
+        /* Future section */
+        .future-section {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+        .future-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .future-card {
+            background: var(--forest-deep);
+            color: var(--white);
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .future-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 90% 90%, rgba(196, 120, 84, 0.1) 0%, transparent 60%);
+        }
+        .future-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .future-card p {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+            max-width: 550px;
+        }
+        .future-year {
+            position: absolute;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.03);
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .timeline { padding-left: 2rem; }
+            .timeline-item { padding-left: 0.5rem; }
+            .timeline-item::before { left: -2rem; }
+            .timeline-content { padding: 1.5rem; }
+            .future-card { padding: 2.5rem; }
+            .future-year { display: none; }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo"><span>R</span>eCorta</a>
-        <ul>
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="icon.png" alt="ReCorta">
+            <span class="nav-logo-text"><span>R</span>eCorta</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html">ホーム</a></li>
             <li><a href="about.html">会社概要</a></li>
             <li><a href="service.html">サービス</a></li>
             <li><a href="team.html">人物紹介</a></li>
-            <li><a href="history.html">沿革</a></li>
+            <li><a href="history.html" class="active">沿革</a></li>
         </ul>
-    </nav>
-    <header class="page-header"><h1>HISTORY</h1></header>
-    <div class="container">
-        <table class="info-table">
-            <tr><th>2024年10月</th><td>研究・開発プロジェクト始動</td></tr>
-            <tr><th>2025年9月</th><td>NHK「ダーウィンが来た！」にて技術協力・紹介</td></tr>
-            <tr><th>2026年4月</th><td>合同会社ReCorta 設立</td></tr>
-        </table>
-        
-        <div style="margin-top: 5rem;">
-            <h3>未来展望</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            <span></span><span></span><span></span>
         </div>
-    </div>
-    <footer><p>&copy; 2026 ReCorta LLC.</p></footer>
+    </nav>
+
+    <header class="page-header">
+        <h1>HISTORY</h1>
+        <p class="page-header-sub">沿革</p>
+    </header>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="timeline-inner">
+            <div class="reveal">
+                <span class="section-label">Timeline</span>
+                <h2 class="section-title">私たちの歩み</h2>
+                <p class="section-subtitle">研究プロジェクトから法人設立まで、着実に歩みを進めてきました。</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2024.10</div>
+                    <div class="timeline-content">
+                        <h3>研究・開発プロジェクト始動</h3>
+                        <p>野生動物調査における画像解析の課題に着目し、AI技術を活用したソリューションの研究開発を開始。対馬でのフィールド調査を通じて、現場のニーズを深く理解しました。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2025.09</div>
+                    <div class="timeline-content">
+                        <h3>NHK「ダーウィンが来た！」にて技術紹介</h3>
+                        <p>2025年9月28日放送「日本の宝ツシマヤマネコ」内で、弊社が開発した画像解析システムが紹介されました。</p>
+                        <a href="https://www.nhk-ondemand.jp/goods/G2025150165SA000/" target="_blank" class="timeline-link">
+                            番組ページ
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2026.04</div>
+                    <div class="timeline-content">
+                        <h3>合同会社ReCorta 設立</h3>
+                        <p>東京都西東京市を拠点に法人化。WildCatcherの本格的な販売と事業展開を開始しました。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future -->
+    <section class="future-section">
+        <div class="future-inner reveal">
+            <div class="future-card">
+                <span class="future-year">2027</span>
+                <h3>未来展望</h3>
+                <p>WildCatcherの機能拡張と対応種の拡大を進め、より多くの調査現場で活用されるプラットフォームへと進化させます。人と野生動物が共存できる社会の実現に向けて、技術の力で貢献し続けます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        <img src="icon.png" alt="ReCorta">
+                        <span class="footer-brand-text"><span>R</span>eCorta</span>
+                    </div>
+                    <p class="footer-desc">AIによる野生動物調査の効率化を通じて、人と野生が共存できる社会の基盤づくりに貢献します。</p>
+                </div>
+                <div>
+                    <h4>Pages</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="service.html">サービス</a></li>
+                        <li><a href="team.html">人物紹介</a></li>
+                        <li><a href="history.html">沿革</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.wildcatcher.jp/" target="_blank">WildCatcher 公式サイト</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 ReCorta LLC. All rights reserved.</span>
+                <span>合同会社ReCorta</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
 </body>
 </html>

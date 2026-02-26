@@ -4,46 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>会社概要 - 合同会社ReCorta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root { --forest-deep: #0b1a13; --forest-mid: #2d5a47; --sand: #f9f7f2; --terracotta: #c47854; --white: #ffffff; --text-main: #2c3e50; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans JP', sans-serif; background-color: var(--sand); color: var(--text-main); line-height: 1.8; }
-        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(45,90,71,0.1); }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--forest-deep); text-decoration: none; }
-        .logo span { color: var(--terracotta); }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { text-decoration: none; color: var(--forest-deep); font-size: 0.9rem; }
-        .page-header { padding: 10rem 10% 4rem; background: var(--forest-deep); color: var(--white); text-align: center; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 6rem 5%; }
-        .info-table { width: 100%; border-collapse: collapse; background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .info-table th { width: 30%; background: #fdfcf9; text-align: left; padding: 1.5rem; border-bottom: 1px solid #eee; color: var(--forest-mid); }
-        .info-table td { padding: 1.5rem; border-bottom: 1px solid #eee; }
-        footer { background: var(--forest-deep); color: var(--white); padding: 3rem; text-align: center; }
+        .info-section { padding: 6rem 5%; background: var(--sand); }
+        .info-inner { max-width: 1080px; margin: 0 auto; }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        .info-table tr {
+            transition: background 0.3s ease;
+        }
+        .info-table tr:hover {
+            background: var(--cream);
+        }
+        .info-table th {
+            width: 220px;
+            text-align: left;
+            padding: 1.6rem 2rem;
+            border-bottom: 1px solid rgba(45,90,71,0.06);
+            color: var(--forest-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            vertical-align: top;
+        }
+        .info-table td {
+            padding: 1.6rem 2rem;
+            border-bottom: 1px solid rgba(45,90,71,0.06);
+            font-size: 0.92rem;
+        }
+        .info-table tr:last-child th,
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Map placeholder */
+        .map-section {
+            background: var(--white);
+            padding: 6rem 5%;
+        }
+        .map-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .map-placeholder {
+            width: 100%;
+            height: 350px;
+            background: var(--sand-dark);
+            border: 2px dashed rgba(45,90,71,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-table th { width: 120px; padding: 1.2rem 1rem; font-size: 0.8rem; }
+            .info-table td { padding: 1.2rem 1rem; font-size: 0.85rem; }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo"><span>R</span>eCorta</a>
-        <ul>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="icon.png" alt="ReCorta">
+            <span class="nav-logo-text"><span>R</span>eCorta</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html">ホーム</a></li>
-            <li><a href="about.html">会社概要</a></li>
+            <li><a href="about.html" class="active">会社概要</a></li>
             <li><a href="service.html">サービス</a></li>
             <li><a href="team.html">人物紹介</a></li>
             <li><a href="history.html">沿革</a></li>
         </ul>
+        <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
-    <header class="page-header"><h1>COMPANY INFO</h1></header>
-    <div class="container">
-        <table class="info-table">
-            <tr><th>商号</th><td>合同会社 ReCorta（レコルタ）</td></tr>
-            <tr><th>設立</th><td>2026年4月1日（令和8年）</td></tr>
-            <tr><th>資本金</th><td>100,000円</td></tr>
-            <tr><th>事業内容</th><td>ソフトウェアの開発・販売</td></tr>
-            <tr><th>従業員数</th><td>2名</td></tr>
-            <tr><th>本社所在地</th><td>東京都西東京市 〇〇</td></tr>
-        </table>
-    </div>
-    <footer><p>&copy; 2026 ReCorta LLC.</p></footer>
+
+    <!-- Header -->
+    <header class="page-header">
+        <h1>COMPANY</h1>
+        <p class="page-header-sub">会社概要</p>
+    </header>
+
+    <!-- Company Info -->
+    <section class="info-section">
+        <div class="info-inner">
+            <div class="reveal" style="margin-bottom: 3rem;">
+                <span class="section-label">Company Profile</span>
+                <h2 class="section-title">基本情報</h2>
+            </div>
+            <table class="info-table reveal">
+                <tr>
+                    <th>商号</th>
+                    <td>合同会社 ReCorta（レコルタ）</td>
+                </tr>
+                <tr>
+                    <th>設立</th>
+                    <td>2026年4月1日（令和8年）</td>
+                </tr>
+                <tr>
+                    <th>資本金</th>
+                    <td>10万円</td>
+                </tr>
+                <tr>
+                    <th>事業内容</th>
+                    <td>ソフトウェア販売</td>
+                </tr>
+                <tr>
+                    <th>CEO（代表取締役社長）</th>
+                    <td>辰巳 海斗</td>
+                </tr>
+                <tr>
+                    <th>CTO（最高技術責任者）</th>
+                    <td>Diego Alonso</td>
+                </tr>
+                <tr>
+                    <th>従業員数</th>
+                    <td>2名（2026年4月1日時点）</td>
+                </tr>
+                <tr>
+                    <th>本社所在地</th>
+                    <td>東京都西東京市 〇〇</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Map / Location -->
+    <section class="map-section">
+        <div class="map-inner reveal">
+            <span class="section-label">Location</span>
+            <h2 class="section-title">アクセス</h2>
+            <!-- 
+                📷 MAP INSTRUCTIONS:
+                Replace the placeholder below with a Google Maps embed or a static map image.
+                
+                For Google Maps embed:
+                <iframe src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE" 
+                    width="100%" height="350" style="border:0;" allowfullscreen="" 
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            -->
+            <div class="map-placeholder">
+                Google Maps 埋め込み、または所在地の地図画像を配置してください
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        <img src="icon.png" alt="ReCorta">
+                        <span class="footer-brand-text"><span>R</span>eCorta</span>
+                    </div>
+                    <p class="footer-desc">AIによる野生動物調査の効率化を通じて、人と野生が共存できる社会の基盤づくりに貢献します。</p>
+                </div>
+                <div>
+                    <h4>Pages</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="service.html">サービス</a></li>
+                        <li><a href="team.html">人物紹介</a></li>
+                        <li><a href="history.html">沿革</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.wildcatcher.jp/" target="_blank">WildCatcher 公式サイト</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 ReCorta LLC. All rights reserved.</span>
+                <span>合同会社ReCorta</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
 </body>
 </html>
