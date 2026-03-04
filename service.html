@@ -82,19 +82,22 @@
             overflow: hidden;
         }
         .product-logo-display {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             filter: brightness(0) invert(1);
-            opacity: 0.12;
+            opacity: 0.15;
             position: absolute;
-            right: -20px;
-            bottom: -20px;
+            right: -10px;
+            bottom: -10px;
+            z-index: 0;
         }
         .product-screenshot {
             width: 100%;
             max-width: 400px;
             border-radius: var(--radius);
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
         }
 
         /* Features Grid */
@@ -268,20 +271,7 @@
                 </div>
                 <div class="product-visual">
                     <img src="icon.png" alt="WildCatcher" class="product-logo-display">
-                    <!-- 
-                        📷 PRODUCT SCREENSHOT INSTRUCTIONS:
-                        Replace the logo display above with a screenshot of the WildCatcher software UI.
-                        
-                        Add this line:
-                        <img src="wildcatcher-screenshot.png" alt="WildCatcher UI" class="product-screenshot">
-                        
-                        Recommended: A clean screenshot showing the software in action,
-                        e.g., analyzing trail camera images with detection boxes visible.
-                        Ideal size: 800×600px
-                    -->
-                    <div class="img-placeholder" style="width: 100%; max-width: 400px; min-height: 260px; border-radius: var(--radius); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                        <span class="hint" style="color: rgba(255,255,255,0.4);">WildCatcherのUI画面スクリーンショットを配置してください。<br>推奨サイズ: 800×600px</span>
-                    </div>
+                    <img src="assets/wildcatcher_screenshot.png" alt="WildCatcher UI" class="product-screenshot">
                 </div>
             </div>
         </div>
@@ -326,17 +316,7 @@
             <!-- Case 1 -->
             <div class="case-card reveal">
                 <div class="case-visual">
-                    <!-- 
-                        📷 CASE STUDY IMAGE:
-                        Place a photo related to the Tsushima yamaneko survey here —
-                        e.g., a Tsushima wildcat captured by trail camera, or the 
-                        rice paddy landscape of Sago area.
-                        
-                        <img src="tsushima-case.jpg" alt="佐護ヤマネコ稲作研究会">
-                    -->
-                    <div class="img-placeholder" style="min-height: 100%; border-radius: 0;">
-                        <span class="hint">ツシマヤマネコの調査関連写真を配置してください。</span>
-                    </div>
+                    <img src="assets/yamanekokai.png" alt="佐護ヤマネコ稲作研究会">
                 </div>
                 <div class="case-content">
                     <span class="case-tag">Wildlife Survey</span>
@@ -348,17 +328,7 @@
             <!-- Case 2 -->
             <div class="case-card reveal">
                 <div class="case-visual">
-                    <!-- 
-                        📷 CASE STUDY IMAGE:
-                        Place a photo related to the NHK broadcast here —
-                        e.g., a still from the program, or another Tsushima
-                        yamaneko trail camera photo.
-                        
-                        <img src="nhk-case.jpg" alt="NHK ダーウィンが来た！">
-                    -->
-                    <div class="img-placeholder" style="min-height: 100%; border-radius: 0;">
-                        <span class="hint">NHK番組関連の画像を配置してください。</span>
-                    </div>
+                    <img src="assets/darwingakita.jpg" alt="NHK ダーウィンが来た！">
                 </div>
                 <div class="case-content">
                     <span class="case-tag">Media / Broadcasting</span>

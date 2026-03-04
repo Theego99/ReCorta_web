@@ -32,6 +32,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -326,9 +327,7 @@ h1, h2, h3 {
     min-height: 300px;
 }
 .img-placeholder::before {
-    content: '📷';
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    content: none;
 }
 .img-placeholder .hint {
     max-width: 260px;

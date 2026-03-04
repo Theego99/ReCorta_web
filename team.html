@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,13 @@
             padding: 6rem 5%;
             background: var(--sand);
         }
+
         .team-intro-inner {
             max-width: 1080px;
             margin: 0 auto;
             text-align: center;
         }
+
         .team-intro p {
             max-width: 600px;
             margin: 0 auto;
@@ -30,10 +33,12 @@
             padding: 0 5% 6rem;
             background: var(--sand);
         }
+
         .founders-inner {
             max-width: 1080px;
             margin: 0 auto;
         }
+
         .founder-card {
             display: grid;
             grid-template-columns: 340px 1fr;
@@ -44,30 +49,36 @@
             box-shadow: var(--shadow-md);
             transition: all 0.4s ease;
         }
+
         .founder-card:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-2px);
         }
+
         .founder-photo {
             position: relative;
             overflow: hidden;
             background: var(--forest-deep);
         }
+
         .founder-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
+
         .founder-card:hover .founder-photo img {
             transform: scale(1.03);
         }
+
         .founder-info {
             padding: 3.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
         .founder-role {
             display: inline-block;
             font-size: 0.7rem;
@@ -80,17 +91,20 @@
             border-bottom: 1px solid var(--border-subtle);
             width: fit-content;
         }
+
         .founder-name {
             font-size: 1.8rem;
             color: var(--forest-deep);
             margin-bottom: 0.3rem;
         }
+
         .founder-name-en {
             font-size: 0.82rem;
             color: var(--text-light);
             letter-spacing: 0.05em;
             margin-bottom: 1.5rem;
         }
+
         .founder-desc {
             font-size: 0.9rem;
             color: var(--text-light);
@@ -102,40 +116,57 @@
             padding: 0 5% 6rem;
             background: var(--sand);
         }
+
         .team-photo-inner {
             max-width: 1080px;
             margin: 0 auto;
         }
+
         .team-photo-container {
             position: relative;
             overflow: hidden;
         }
+
         .team-photo-container img {
             width: 100%;
             display: block;
         }
+
         .team-photo-caption {
             background: var(--forest-deep);
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             padding: 1.5rem 2rem;
             font-size: 0.82rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .team-photo-caption span:first-child {
             color: var(--white);
             font-weight: 700;
         }
 
         @media (max-width: 768px) {
-            .founder-card { grid-template-columns: 1fr; }
-            .founder-photo { height: 280px; }
-            .founder-info { padding: 2.5rem; }
-            .founder-name { font-size: 1.4rem; }
+            .founder-card {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-photo {
+                height: 280px;
+            }
+
+            .founder-info {
+                padding: 2.5rem;
+            }
+
+            .founder-name {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <nav class="nav" id="nav">
         <a href="index.html" class="nav-logo">
@@ -176,48 +207,28 @@
             <!-- CEO -->
             <div class="founder-card reveal">
                 <div class="founder-photo">
-                    <!-- 
-                        📷 PORTRAIT IMAGE — 辰巳 海斗:
-                        Replace this placeholder with a professional headshot or portrait.
-                        
-                        <img src="tatsumi-portrait.jpg" alt="辰巳 海斗">
-                        
-                        Recommended: Professional headshot, environmental portrait 
-                        (e.g., in the field or office). Size: 680×800px or similar.
-                    -->
-                    <div class="img-placeholder" style="min-height: 100%; border-radius: 0; border: none; background: var(--forest-mid);">
-                        <span class="hint" style="color: rgba(255,255,255,0.5);">辰巳海斗さんのポートレート写真を配置してください。<br>推奨サイズ: 680×800px</span>
-                    </div>
+                    <img src="assets/founders.jpg" alt="辰巳 海斗">
                 </div>
                 <div class="founder-info">
                     <span class="founder-role">CEO / 代表取締役社長</span>
                     <h3 class="founder-name">辰巳 海斗</h3>
                     <p class="founder-name-en">Kaito Tatsumi</p>
-                    <p class="founder-desc">営業戦略とビジネス開発の責任者。野生動物保護団体とのパートナーシップを構築し、現場の声を技術へ繋ぐ橋渡し役として、WildCatcherの社会実装を推進しています。</p>
+                    <p class="founder-desc">
+                        営業戦略とビジネス開発の責任者。野生動物保護団体とのパートナーシップを構築し、現場の声を技術へ繋ぐ橋渡し役として、WildCatcherの社会実装を推進しています。</p>
                 </div>
             </div>
 
             <!-- CTO -->
             <div class="founder-card reveal">
                 <div class="founder-photo">
-                    <!-- 
-                        📷 PORTRAIT IMAGE — Diego Alonso:
-                        Replace this placeholder with a professional headshot or portrait.
-                        
-                        <img src="diego-portrait.jpg" alt="Diego Alonso">
-                        
-                        Recommended: Professional headshot, environmental portrait 
-                        (e.g., working on code or in the field). Size: 680×800px or similar.
-                    -->
-                    <div class="img-placeholder" style="min-height: 100%; border-radius: 0; border: none; background: var(--forest-mid);">
-                        <span class="hint" style="color: rgba(255,255,255,0.5);">Diego Alonsoさんのポートレート写真を配置してください。<br>推奨サイズ: 680×800px</span>
-                    </div>
+                    <img src="assets/Diego_prof.jpg" alt="Diego Alonso">
                 </div>
                 <div class="founder-info">
                     <span class="founder-role">CTO / 最高技術責任者</span>
                     <h3 class="founder-name">Diego Alonso</h3>
                     <p class="founder-name-en">ディエゴ アロンソ</p>
-                    <p class="founder-desc">WildCatcherの開発者。AI技術を活用した野生動物調査支援システムをゼロから設計・構築。完全オフライン環境で動作する高精度な画像解析エンジンの実現に取り組んでいます。</p>
+                    <p class="founder-desc">
+                        WildCatcherの開発者。AI技術を活用した野生動物調査支援システムをゼロから設計・構築。完全オフライン環境で動作する高精度な画像解析エンジンの実現に取り組んでいます。</p>
                 </div>
             </div>
         </div>
@@ -227,22 +238,9 @@
     <section class="team-photo-section">
         <div class="team-photo-inner reveal">
             <div class="team-photo-container">
-                <!-- 
-                    📷 TEAM PHOTO — 2024年対馬での調査:
-                    You mentioned having a photo of both cofounders looking for 
-                    Tsushima yamaneko in 2024. Place that photo here.
-                    
-                    Replace this placeholder with:
-                    <img src="team-tsushima-2024.jpg" alt="2024年 対馬にてツシマヤマネコ調査">
-                    
-                    Recommended: The photo of you and Diego in the field.
-                    This image will span the full width of the content area.
-                -->
-                <div class="img-placeholder" style="min-height: 400px; border-radius: 0;">
-                    <span class="hint">2024年 対馬でのフィールド調査写真（辰巳さんとDiegoさんの2人の写真）を配置してください。<br>推奨サイズ: 1080×600px以上</span>
-                </div>
+                <img src="assets/founders.jpg" alt="2024年 対馬にてツシマヤマネコ探索">
                 <div class="team-photo-caption">
-                    <span>2024年 — 対馬にて、ツシマヤマネコ生息調査</span>
+                    <span>2024年 — 対馬にて、ツシマヤマネコ探索</span>
                     <span>Tsushima, Japan</span>
                 </div>
             </div>
@@ -294,4 +292,5 @@
         });
     </script>
 </body>
+
 </html>
