@@ -1,4 +1,6 @@
 :root {
+  --brand-green: #0a1710;
+  --brand-terracotta: #c47854;
   --bg: #f6f3ec;
   --surface: #fff;
   --ink: #142f24;
@@ -126,6 +128,21 @@ summary {
   height: 36px;
   object-fit: contain;
   border-radius: 50%;
+}
+.corporate .brand-wordmark {
+  color: var(--brand-green);
+  font-family: var(--serif);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.corporate .brand-initial {
+  color: var(--brand-terracotta);
+}
+.corporate .brand-mark {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 0;
 }
 nav {
   display: flex;
