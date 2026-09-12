@@ -1,165 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会社概要 - 合同会社ReCorta</title>
-    <link rel="icon" href="icon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .info-section { padding: 6rem 5%; background: var(--sand); }
-        .info-inner { max-width: 1080px; margin: 0 auto; }
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--white);
-            box-shadow: var(--shadow-md);
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>会社概要 | 合同会社ReCorta</title>
+    <meta
+      name="description"
+      content="合同会社ReCortaの会社概要。2026年9月9日設立、代表社員 辰巳海斗、本店 東京都西東京市、資本金10万円。ソフトウェア販売・PCパーツ販売・コンサルティング。"
+    />
+    <link rel="canonical" href="https://www.recorta.jp/about.html" />
+    <meta name="theme-color" content="#10291f" />
+    <link rel="icon" href="assets/icon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css?v=20260912" />
+    <script src="site.js?v=20260912" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RecorTa",
+        "legalName": "合同会社ReCorta",
+        "url": "https://www.recorta.jp/",
+        "foundingDate": "2026-09-09",
+        "email": "diegoalonsojapan@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "西東京市",
+          "addressRegion": "東京都",
+          "addressCountry": "JP"
         }
-        .info-table tr {
-            transition: background 0.3s ease;
-        }
-        .info-table tr:hover {
-            background: var(--cream);
-        }
-        .info-table th {
-            width: 220px;
-            text-align: left;
-            padding: 1.6rem 2rem;
-            border-bottom: 1px solid rgba(45,90,71,0.06);
-            color: var(--forest-light);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            vertical-align: top;
-        }
-        .info-table td {
-            padding: 1.6rem 2rem;
-            border-bottom: 1px solid rgba(45,90,71,0.06);
-            font-size: 0.92rem;
-        }
-        .info-table tr:last-child th,
-        .info-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        @media (max-width: 768px) {
-            .info-table th { width: 120px; padding: 1.2rem 1rem; font-size: 0.8rem; }
-            .info-table td { padding: 1.2rem 1rem; font-size: 0.85rem; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <a href="index.html" class="nav-logo">
-            <img src="icon.png" alt="ReCorta">
-            <span class="nav-logo-text"><span>R</span>eCorta</span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="about.html" class="active">会社概要</a></li>
-            <li><a href="service.html">サービス</a></li>
-            <li><a href="team.html">人物紹介</a></li>
-            <li><a href="history.html">沿革</a></li>
-        </ul>
-        <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-            <span></span><span></span><span></span>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="page-header">
-        <h1>COMPANY</h1>
-        <p class="page-header-sub">会社概要</p>
-    </header>
-
-    <!-- Company Info -->
-    <section class="info-section">
-        <div class="info-inner">
-            <div class="reveal" style="margin-bottom: 3rem;">
-                <span class="section-label">Company Profile</span>
-                <h2 class="section-title">基本情報</h2>
-            </div>
-            <table class="info-table reveal">
-                <tr>
-                    <th>商号</th>
-                    <td>合同会社 ReCorta（レコルタ）</td>
-                </tr>
-                <tr>
-                    <th>設立</th>
-                    <td>2026年4月1日（令和8年）</td>
-                </tr>
-                <tr>
-                    <th>資本金</th>
-                    <td>10万円</td>
-                </tr>
-                <tr>
-                    <th>事業内容</th>
-                    <td>ソフトウェア販売</td>
-                </tr>
-                <tr>
-                    <th>CEO（代表取締役社長）</th>
-                    <td>辰巳 海斗</td>
-                </tr>
-                <tr>
-                    <th>CTO（最高技術責任者）</th>
-                    <td>Diego Alonso</td>
-                </tr>
-                <tr>
-                    <th>従業員数</th>
-                    <td>2名（2026年4月1日時点）</td>
-                </tr>
-                <tr>
-                    <th>本社所在地</th>
-                    <td>東京都西東京市 〇〇</td>
-                </tr>
-            </table>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">
-                        <img src="icon.png" alt="ReCorta">
-                        <span class="footer-brand-text"><span>R</span>eCorta</span>
-                    </div>
-                    <p class="footer-desc">AIによる野生動物調査の効率化を通じて、人と野生が共存できる社会の基盤づくりに貢献します。</p>
-                </div>
-                <div>
-                    <h4>Pages</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="about.html">会社概要</a></li>
-                        <li><a href="service.html">サービス</a></li>
-                        <li><a href="team.html">人物紹介</a></li>
-                        <li><a href="history.html">沿革</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Product</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://www.wildcatcher.jp/" target="_blank">WildCatcher 公式サイト</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 ReCorta LLC. All rights reserved.</span>
-                <span>合同会社ReCorta</span>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
-        window.addEventListener('scroll', () => {
-            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-        });
+      }
     </script>
-</body>
+  </head>
+  <body class="corporate">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="wrap nav-wrap">
+        <a class="brand" href="index.html"
+          ><img src="assets/icon.png" alt="" width="36" height="36" /><span
+            >RecorTa</span
+          ></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="navigation"
+          aria-expanded="false"
+          hidden
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="index.html">ホーム</a
+          ><a href="about.html" aria-current="page">会社概要</a
+          ><a href="service.html">製品・サービス</a
+          ><a href="team.html">創業メンバー</a><a href="history.html">沿革</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <header class="page-intro wrap">
+        <p class="eyebrow">Company</p>
+        <h1>会社概要</h1>
+        <p class="lead">
+          現場の課題を理解し、使い続けられるソフトウェアへ。RecorTaの基本情報をご案内します。
+        </p>
+      </header>
+      <section class="section">
+        <div class="wrap split">
+          <div>
+            <p class="eyebrow">Company profile</p>
+            <h2>合同会社ReCorta</h2>
+            <p>
+              野生動物調査の画像・動画解析を支援するWildCatcherの提供と、環境アセスメント業務を支援するWildpassの開発に取り組んでいます。
+            </p>
+            <p>
+              利用する人が記録を確認し、判断の根拠を残せることを大切にしています。
+            </p>
+            <a class="button secondary" href="service.html"
+              >製品・サービス<span aria-hidden="true"> →</span></a
+            >
+          </div>
+          <div>
+            <dl class="profile">
+              <div>
+                <dt>商号</dt>
+                <dd>合同会社ReCorta（レコルタ）</dd>
+              </div>
+              <div>
+                <dt>設立日</dt>
+                <dd>2026年9月9日</dd>
+              </div>
+              <div>
+                <dt>代表社員</dt>
+                <dd>辰巳 海斗</dd>
+              </div>
+              <div>
+                <dt>本店所在地</dt>
+                <dd>東京都西東京市</dd>
+              </div>
+              <div>
+                <dt>資本金</dt>
+                <dd>100,000円</dd>
+              </div>
+              <div>
+                <dt>事業目的</dt>
+                <dd>
+                  ソフトウェアの販売<br />PCパーツの販売<br />コンサルティング業務<br />前各号に附帯関連する一切の事業
+                </dd>
+              </div>
+              <div>
+                <dt>事業年度</dt>
+                <dd>毎年4月1日から翌年3月31日まで</dd>
+              </div>
+              <div>
+                <dt>お問い合わせ</dt>
+                <dd>
+                  <a href="mailto:diegoalonsojapan@gmail.com"
+                    >diegoalonsojapan@gmail.com</a
+                  >
+                </dd>
+              </div>
+            </dl>
+            <div class="notice">
+              <p class="small">
+                2026年9月12日現在：9月9日を設立日として設立登記を申請済みです。登記手続きは完了待ちのため、法人番号などの情報は確認後に掲載します。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap">
+          <div class="cta">
+            <div>
+              <h2>製品や導入についてのお問い合わせ</h2>
+              <p>評価利用、見積り、業務に合わせたご相談を受け付けています。</p>
+            </div>
+            <a
+              class="button"
+              href="mailto:diegoalonsojapan@gmail.com?subject=RecorTa%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
+              >お問い合わせ<span aria-hidden="true"> ↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="index.html">RecorTa</a>
+            <p>現場の記録を、確かな判断につなぐ。</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">ホーム</a
+            ><a href="about.html" aria-current="page">会社概要</a
+            ><a href="service.html">製品・サービス</a
+            ><a href="team.html">創業メンバー</a><a href="history.html">沿革</a>
+          </div>
+          <div class="footer-links">
+            <a href="https://www.recorta.jp/">合同会社ReCorta</a
+            ><a href="https://www.wildcatcher.jp/">WildCatcher</a
+            ><a href="https://www.recorta.jp/service.html#wildpass"
+              >Wildpass · 開発中</a
+            ><a href="mailto:diegoalonsojapan@gmail.com">お問い合わせ</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 合同会社ReCorta</span
+          ><span>東京都西東京市 · 2026年9月9日設立</span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

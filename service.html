@@ -1,391 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サービス - 合同会社ReCorta</title>
-    <link rel="icon" href="icon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Product Hero */
-        .product-hero {
-            padding: 6rem 5% 0;
-            background: var(--sand);
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>製品・サービス | WildCatcher・Wildpass | RecorTa</title>
+    <meta
+      name="description"
+      content="提供中の野生動物解析ソフトWildCatcherと、開発中のEIA toolkit「Wildpass」。環境アセスメントの工程、現場記録、根拠資料、レビュー、Word報告書を支援。"
+    />
+    <link rel="canonical" href="https://www.recorta.jp/service.html" />
+    <meta name="theme-color" content="#10291f" />
+    <link rel="icon" href="assets/icon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css?v=20260912" />
+    <script src="site.js?v=20260912" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RecorTa",
+        "legalName": "合同会社ReCorta",
+        "url": "https://www.recorta.jp/",
+        "foundingDate": "2026-09-09",
+        "email": "diegoalonsojapan@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "西東京市",
+          "addressRegion": "東京都",
+          "addressCountry": "JP"
         }
-        .product-hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .product-showcase {
-            background: var(--forest-deep);
-            color: var(--white);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            overflow: hidden;
-            position: relative;
-        }
-        .product-showcase::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 80% 30%, rgba(45,90,71,0.2) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        .product-info {
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-        .product-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(196, 120, 84, 0.15);
-            color: var(--terracotta-light);
-            padding: 0.4rem 1rem;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            width: fit-content;
-        }
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.02em;
-        }
-        .product-type {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 2rem;
-            letter-spacing: 0.05em;
-        }
-        .product-desc {
-            font-size: 0.92rem;
-            color: rgba(255,255,255,0.7);
-            line-height: 2;
-            margin-bottom: 2.5rem;
-            max-width: 420px;
-        }
-        .product-visual {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem;
-            overflow: hidden;
-        }
-        .product-logo-display {
-            width: 180px;
-            height: 180px;
-            filter: brightness(0) invert(1);
-            opacity: 0.15;
-            position: absolute;
-            right: -10px;
-            bottom: -10px;
-            z-index: 0;
-        }
-        .product-screenshot {
-            width: 100%;
-            max-width: 400px;
-            border-radius: var(--radius);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Features Grid */
-        .features {
-            padding: 6rem 5%;
-            background: var(--sand);
-        }
-        .features-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .feature-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border: 1px solid var(--border-subtle);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--sand);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-        .feature-card h3 {
-            font-size: 1.05rem;
-            color: var(--forest-deep);
-            margin-bottom: 0.8rem;
-        }
-        .feature-card p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Case Studies */
-        .cases {
-            padding: 6rem 5%;
-            background: var(--white);
-        }
-        .cases-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .case-card {
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 0;
-            margin-bottom: 2rem;
-            background: var(--sand);
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-        .case-card:hover {
-            box-shadow: var(--shadow-md);
-        }
-        .case-visual {
-            position: relative;
-            overflow: hidden;
-        }
-        .case-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .case-card:hover .case-visual img {
-            transform: scale(1.05);
-        }
-        .case-content {
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .case-tag {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--terracotta);
-            margin-bottom: 0.8rem;
-        }
-        .case-content h3 {
-            font-size: 1.3rem;
-            color: var(--forest-deep);
-            margin-bottom: 1rem;
-        }
-        .case-content p {
-            font-size: 0.88rem;
-            color: var(--text-light);
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-        }
-        .case-link {
-            color: var(--terracotta);
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: gap 0.3s ease;
-        }
-        .case-link:hover { gap: 0.8rem; }
-
-        @media (max-width: 768px) {
-            .product-showcase { grid-template-columns: 1fr; }
-            .product-info { padding: 3rem 2rem; }
-            .product-name { font-size: 2rem; }
-            .product-visual { padding: 2rem; min-height: 250px; }
-            .features-grid { grid-template-columns: 1fr; }
-            .case-card { grid-template-columns: 1fr; }
-            .case-visual { height: 200px; }
-        }
-    </style>
-</head>
-<body>
-    <nav class="nav" id="nav">
-        <a href="index.html" class="nav-logo">
-            <img src="icon.png" alt="ReCorta">
-            <span class="nav-logo-text"><span>R</span>eCorta</span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="about.html">会社概要</a></li>
-            <li><a href="service.html" class="active">サービス</a></li>
-            <li><a href="team.html">人物紹介</a></li>
-            <li><a href="history.html">沿革</a></li>
-        </ul>
-        <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-            <span></span><span></span><span></span>
-        </div>
-    </nav>
-
-    <header class="page-header">
-        <h1>SERVICES</h1>
-        <p class="page-header-sub">サービス紹介</p>
-    </header>
-
-    <!-- Product Showcase -->
-    <section class="product-hero">
-        <div class="product-hero-inner">
-            <div class="product-showcase reveal">
-                <div class="product-info">
-                    <div class="product-badge">🔒 Fully Offline AI</div>
-                    <h2 class="product-name">WildCatcher</h2>
-                    <p class="product-type">AI Wildlife Survey Software</p>
-                    <p class="product-desc">
-                        完全オフライン動作のAI野生動物調査ソフトウェア。通信環境に依存せず、機微な調査情報を外部に出すことなく、目的の生物データを瞬時に抽出します。
-                    </p>
-                    <a href="https://www.wildcatcher.jp/" target="_blank" class="btn-primary" style="width: fit-content;">
-                        製品サイトへ
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                    </a>
-                </div>
-                <div class="product-visual">
-                    <img src="icon.png" alt="WildCatcher" class="product-logo-display">
-                    <img src="assets/wildcatcher_screenshot.png" alt="WildCatcher UI" class="product-screenshot">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="features">
-        <div class="features-inner">
-            <div class="reveal">
-                <span class="section-label">Features</span>
-                <h2 class="section-title">主な機能</h2>
-            </div>
-            <div class="features-grid stagger">
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🔌</div>
-                    <h3>完全オフライン動作</h3>
-                    <p>インターネット接続不要。山間部や離島など通信インフラが限られた調査現場でも安定して稼働します。</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>データセキュリティ</h3>
-                    <p>調査情報を外部サーバーに送信しません。希少種の生息地情報など機微なデータを安全に保護します。</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">⚡</div>
-                    <h3>高速データ抽出</h3>
-                    <p>膨大なトレイルカメラ画像から目的の生物データを瞬時に抽出。手作業での確認時間を大幅に削減します。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Case Studies -->
-    <section class="cases">
-        <div class="cases-inner">
-            <div class="reveal" style="margin-bottom: 3rem;">
-                <span class="section-label">Case Studies</span>
-                <h2 class="section-title">導入実績</h2>
-                <p class="section-subtitle">現場の課題解決を通じて、技術の価値を証明しています。</p>
-            </div>
-
-            <!-- Case 1 -->
-            <div class="case-card reveal">
-                <div class="case-visual">
-                    <img src="assets/yamanekokai.png" alt="佐護ヤマネコ稲作研究会">
-                </div>
-                <div class="case-content">
-                    <span class="case-tag">Wildlife Survey</span>
-                    <h3>佐護ヤマネコ稲作研究会</h3>
-                    <p>ツシマヤマネコ生息調査に伴い導入。大量の撮影データから対象個体を効率的に抽出し、調査の迅速化と精度向上に貢献しました。</p>
-                </div>
-            </div>
-
-            <!-- Case 2 -->
-            <div class="case-card reveal">
-                <div class="case-visual">
-                    <img src="assets/darwingakita.jpg" alt="NHK ダーウィンが来た！">
-                </div>
-                <div class="case-content">
-                    <span class="case-tag">Media / Broadcasting</span>
-                    <h3>NHK「ダーウィンが来た！」</h3>
-                    <p>同社番組内ツシマヤマネコ長期密着撮影に伴い導入。2025年9月28日放送「日本の宝ツシマヤマネコ」にて弊社システムが紹介されました。</p>
-                    <a href="https://www.nhk-ondemand.jp/goods/G2025150165SA000/" target="_blank" class="case-link">
-                        番組ページを見る
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">
-                        <img src="icon.png" alt="ReCorta">
-                        <span class="footer-brand-text"><span>R</span>eCorta</span>
-                    </div>
-                    <p class="footer-desc">AIによる野生動物調査の効率化を通じて、人と野生が共存できる社会の基盤づくりに貢献します。</p>
-                </div>
-                <div>
-                    <h4>Pages</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="about.html">会社概要</a></li>
-                        <li><a href="service.html">サービス</a></li>
-                        <li><a href="team.html">人物紹介</a></li>
-                        <li><a href="history.html">沿革</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Product</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://www.wildcatcher.jp/" target="_blank">WildCatcher 公式サイト</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 ReCorta LLC. All rights reserved.</span>
-                <span>合同会社ReCorta</span>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
-        window.addEventListener('scroll', () => {
-            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-        });
+      }
     </script>
-</body>
+  </head>
+  <body class="corporate">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="wrap nav-wrap">
+        <a class="brand" href="index.html"
+          ><img src="assets/icon.png" alt="" width="36" height="36" /><span
+            >RecorTa</span
+          ></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="navigation"
+          aria-expanded="false"
+          hidden
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="index.html">ホーム</a><a href="about.html">会社概要</a
+          ><a href="service.html" aria-current="page">製品・サービス</a
+          ><a href="team.html">創業メンバー</a><a href="history.html">沿革</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <header class="page-intro wrap">
+        <p class="eyebrow">Products & services</p>
+        <h1>現場の仕事を支える、<br />二つのアプローチ。</h1>
+        <p class="lead">
+          撮影データを解析するWildCatcherと、環境アセスメントの記録・報告をつなぐWildpass。目的に合わせてご案内します。
+        </p>
+      </header>
+      <section id="wildcatcher" class="section">
+        <div class="wrap">
+          <div class="split center">
+            <div>
+              <span class="status live">提供中 · v2.2.0</span>
+              <h2 class="product-name">WildCatcher</h2>
+              <p class="lead">
+                カメラトラップの画像・動画を、<br />PC上で解析・確認・出力。
+              </p>
+              <p>
+                動物・人・車両の検出に加え、種分類、結果確認、ラベル修正、各種データ出力をまとめたデスクトップアプリです。
+              </p>
+              <div class="actions">
+                <a class="button" href="https://www.wildcatcher.jp/"
+                  >製品サイトへ<span aria-hidden="true"> →</span></a
+                ><a
+                  class="button secondary"
+                  href="https://www.wildcatcher.jp/download.html"
+                  >最新版の入手<span aria-hidden="true"> →</span></a
+                >
+              </div>
+              <p class="hero-note">
+                Windows / macOS · 14日間トライアルあり<br />種分類・PDFなどはライセンスにより利用範囲が異なります。
+              </p>
+            </div>
+            <figure>
+              <img
+                class="section-photo"
+                src="assets/yamaneko_toorimasu.webp"
+                alt="対馬のヤマネコに関する現場の風景"
+                loading="lazy"
+              />
+              <figcaption class="photo-caption">
+                野生動物の調査に向き合う現場から。
+              </figcaption>
+            </figure>
+          </div>
+          <div class="section">
+            <div class="cards">
+              <article class="card">
+                <span class="number">01</span>
+                <h3>調査映像をローカルで解析</h3>
+                <p>
+                  アプリとモデルの準備後は、撮影データをクラウドに送らずに解析できます。
+                </p>
+              </article>
+              <article class="card">
+                <span class="number">02</span>
+                <h3>確認しながら結果を整える</h3>
+                <p>
+                  検出・分類した記録をフィルターで確認し、ラベルの修正と履歴を残せます。
+                </p>
+              </article>
+              <article class="card">
+                <span class="number">03</span>
+                <h3>目的に合わせて出力する</h3>
+                <p>
+                  CSV・Excelなどの標準形式に対応。ProではPDFや対応する外部ツール向け出力も利用できます。
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="wildpass" class="section alt">
+        <div class="wrap">
+          <div class="split">
+            <div>
+              <span class="status">開発中 · パイロット検証段階</span>
+              <h2 class="product-name">Wildpass</h2>
+              <p class="eyebrow">Environmental impact assessment toolkit</p>
+              <h3>現場の記録から、<br />チームで確認できる報告書へ。</h3>
+            </div>
+            <div>
+              <p class="lead">
+                環境アセスメント（EIA）に携わるチームのための業務ワークスペースを開発しています。
+              </p>
+              <p>
+                案件ごとの工程・業務、現場の観察・測定、写真・資料、担当者によるレビュー、寄せられた意見への対応をまとめ、編集可能なWord報告書につなげます。
+              </p>
+              <p>
+                現在は実務担当者と確認するパイロット検証段階です。導入条件・提供時期・費用は、対象業務と検証範囲を確認したうえで個別にご案内します。
+              </p>
+              <a
+                class="button"
+                href="mailto:diegoalonsojapan@gmail.com?subject=Wildpass%20%E3%83%91%E3%82%A4%E3%83%AD%E3%83%83%E3%83%88%E3%83%BB%E5%B0%8E%E5%85%A5%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E7%9B%B8%E8%AB%87"
+                >Wildpassについて相談する<span aria-hidden="true"> ↗</span></a
+              >
+            </div>
+          </div>
+          <div class="section">
+            <div class="cards">
+              <article class="card">
+                <span class="number">01</span>
+                <h3>工程と現場記録</h3>
+                <p>
+                  業務の担当・期限を整理し、観察、測定、写真・資料を関連付けて保存。事前準備した端末でのオフライン記録にも取り組んでいます。
+                </p>
+              </article>
+              <article class="card">
+                <span class="number">02</span>
+                <h3>根拠資料とチームレビュー</h3>
+                <p>
+                  記録と原本資料を関連付け、確認者のレビューと変更履歴を残します。意見への回答や対応先も一つの案件で管理します。
+                </p>
+              </article>
+              <article class="card">
+                <span class="number">03</span>
+                <h3>編集できる報告書</h3>
+                <p>
+                  章ごとの文章と記録からWord報告書を生成。原本資料をまとめたZIP出力と保存版の管理に対応する構成です。
+                </p>
+              </article>
+            </div>
+          </div>
+          <div class="notice">
+            <h3>専門家の判断を支えるツールです。</h3>
+            <p>
+              法令・条例の適用判断、種の同定、影響の予測・評価、行政協議や提出手続きは実務担当者が行います。Wildpassが法令適合や審査通過を自動判定することはありません。
+            </p>
+            <p class="small">
+              オフライン利用には事前のログインとデータ準備が必要です。端末への保存とチームへの共有は別の状態として扱います。WildCatcherとは独立した製品です。
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Consulting</p>
+            <h2>利用環境に合わせて、相談する。</h2>
+            <p>ソフトウェアの導入と、画像・動画解析の運用を支援します。</p>
+          </div>
+          <div class="split">
+            <div>
+              <h3>特化モデル・運用の相談</h3>
+              <p>
+                調査地や対象種、手元のデータ量・品質を確認し、モデルの評価方法と運用範囲を整理します。特化モデルの開発は個別のお見積りとなります。
+              </p>
+            </div>
+            <div>
+              <h3>導入・評価の相談</h3>
+              <p>
+                PC環境、利用人数・台数、想定する業務、既存の記録・報告書の形式をお知らせください。評価利用の進め方と必要な構成をご案内します。
+              </p>
+            </div>
+          </div>
+          <div class="actions">
+            <a
+              class="button"
+              href="mailto:diegoalonsojapan@gmail.com?subject=RecorTa%20%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%B0%8E%E5%85%A5%E3%83%BB%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E7%9B%B8%E8%AB%87"
+              >導入について相談する<span aria-hidden="true"> ↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="index.html">RecorTa</a>
+            <p>現場の記録を、確かな判断につなぐ。</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">ホーム</a><a href="about.html">会社概要</a
+            ><a href="service.html" aria-current="page">製品・サービス</a
+            ><a href="team.html">創業メンバー</a><a href="history.html">沿革</a>
+          </div>
+          <div class="footer-links">
+            <a href="https://www.recorta.jp/">合同会社ReCorta</a
+            ><a href="https://www.wildcatcher.jp/">WildCatcher</a
+            ><a href="https://www.recorta.jp/service.html#wildpass"
+              >Wildpass · 開発中</a
+            ><a href="mailto:diegoalonsojapan@gmail.com">お問い合わせ</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 合同会社ReCorta</span
+          ><span>東京都西東京市 · 2026年9月9日設立</span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

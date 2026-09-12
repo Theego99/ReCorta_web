@@ -1,296 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人物紹介 - 合同会社ReCorta</title>
-    <link rel="icon" href="icon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Team Intro */
-        .team-intro {
-            padding: 6rem 5%;
-            background: var(--sand);
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>創業メンバー | RecorTa</title>
+    <meta
+      name="description"
+      content="合同会社ReCortaの創業メンバー。代表社員 辰巳海斗と、共同創業者・WildCatcher開発者 Diego Alonsoを紹介します。"
+    />
+    <link rel="canonical" href="https://www.recorta.jp/team.html" />
+    <meta name="theme-color" content="#10291f" />
+    <link rel="icon" href="assets/icon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css?v=20260912" />
+    <script src="site.js?v=20260912" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RecorTa",
+        "legalName": "合同会社ReCorta",
+        "url": "https://www.recorta.jp/",
+        "foundingDate": "2026-09-09",
+        "email": "diegoalonsojapan@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "西東京市",
+          "addressRegion": "東京都",
+          "addressCountry": "JP"
         }
-
-        .team-intro-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .team-intro p {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 0.95rem;
-            color: var(--text-light);
-            line-height: 2;
-        }
-
-        /* Founder Cards */
-        .founders {
-            padding: 0 5% 6rem;
-            background: var(--sand);
-        }
-
-        .founders-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-        }
-
-        .founder-card {
-            display: grid;
-            grid-template-columns: 340px 1fr;
-            gap: 0;
-            background: var(--white);
-            margin-bottom: 3rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-        }
-
-        .founder-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-
-        .founder-photo {
-            position: relative;
-            overflow: hidden;
-            background: var(--forest-deep);
-        }
-
-        .founder-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .founder-card:hover .founder-photo img {
-            transform: scale(1.03);
-        }
-
-        .founder-info {
-            padding: 3.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .founder-role {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--terracotta);
-            margin-bottom: 0.8rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid var(--border-subtle);
-            width: fit-content;
-        }
-
-        .founder-name {
-            font-size: 1.8rem;
-            color: var(--forest-deep);
-            margin-bottom: 0.3rem;
-        }
-
-        .founder-name-en {
-            font-size: 0.82rem;
-            color: var(--text-light);
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
-        }
-
-        .founder-desc {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 2;
-        }
-
-        /* Team Photo */
-        .team-photo-section {
-            padding: 0 5% 6rem;
-            background: var(--sand);
-        }
-
-        .team-photo-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-        }
-
-        .team-photo-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-photo-container img {
-            width: 100%;
-            display: block;
-        }
-
-        .team-photo-caption {
-            background: var(--forest-deep);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 1.5rem 2rem;
-            font-size: 0.82rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .team-photo-caption span:first-child {
-            color: var(--white);
-            font-weight: 700;
-        }
-
-        @media (max-width: 768px) {
-            .founder-card {
-                grid-template-columns: 1fr;
-            }
-
-            .founder-photo {
-                height: 280px;
-            }
-
-            .founder-info {
-                padding: 2.5rem;
-            }
-
-            .founder-name {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <nav class="nav" id="nav">
-        <a href="index.html" class="nav-logo">
-            <img src="icon.png" alt="ReCorta">
-            <span class="nav-logo-text"><span>R</span>eCorta</span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="about.html">会社概要</a></li>
-            <li><a href="service.html">サービス</a></li>
-            <li><a href="team.html" class="active">人物紹介</a></li>
-            <li><a href="history.html">沿革</a></li>
-        </ul>
-        <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-            <span></span><span></span><span></span>
-        </div>
-    </nav>
-
-    <header class="page-header">
-        <h1>TEAM</h1>
-        <p class="page-header-sub">人物紹介</p>
-    </header>
-
-    <!-- Intro -->
-    <section class="team-intro">
-        <div class="team-intro-inner reveal">
-            <span class="section-label" style="padding-left: 0; text-align: center;">
-                Founders
-            </span>
-            <h2 class="section-title" style="text-align: center;">創業メンバー</h2>
-            <p>技術と営業、二つの専門性を持つ創業者が現場の課題に向き合い、野生動物調査の未来を共に切り拓きます。</p>
-        </div>
-    </section>
-
-    <!-- Founder Cards -->
-    <section class="founders">
-        <div class="founders-inner">
-            <!-- CEO -->
-            <div class="founder-card reveal">
-                <div class="founder-photo">
-                    <img src="assets/founders.jpg" alt="辰巳 海斗">
-                </div>
-                <div class="founder-info">
-                    <span class="founder-role">CEO / 代表取締役社長</span>
-                    <h3 class="founder-name">辰巳 海斗</h3>
-                    <p class="founder-name-en">Kaito Tatsumi</p>
-                    <p class="founder-desc">
-                        営業戦略とビジネス開発の責任者。野生動物保護団体とのパートナーシップを構築し、現場の声を技術へ繋ぐ橋渡し役として、WildCatcherの社会実装を推進しています。</p>
-                </div>
-            </div>
-
-            <!-- CTO -->
-            <div class="founder-card reveal">
-                <div class="founder-photo">
-                    <img src="assets/Diego_prof.jpg" alt="Diego Alonso">
-                </div>
-                <div class="founder-info">
-                    <span class="founder-role">CTO / 最高技術責任者</span>
-                    <h3 class="founder-name">Diego Alonso</h3>
-                    <p class="founder-name-en">ディエゴ アロンソ</p>
-                    <p class="founder-desc">
-                        WildCatcherの開発者。AI技術を活用した野生動物調査支援システムをゼロから設計・構築。完全オフライン環境で動作する高精度な画像解析エンジンの実現に取り組んでいます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Photo -->
-    <section class="team-photo-section">
-        <div class="team-photo-inner reveal">
-            <div class="team-photo-container">
-                <img src="assets/founders.jpg" alt="2024年 対馬にてツシマヤマネコ探索">
-                <div class="team-photo-caption">
-                    <span>2024年 — 対馬にて、ツシマヤマネコ探索</span>
-                    <span>Tsushima, Japan</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">
-                        <img src="icon.png" alt="ReCorta">
-                        <span class="footer-brand-text"><span>R</span>eCorta</span>
-                    </div>
-                    <p class="footer-desc">AIによる野生動物調査の効率化を通じて、人と野生が共存できる社会の基盤づくりに貢献します。</p>
-                </div>
-                <div>
-                    <h4>Pages</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="about.html">会社概要</a></li>
-                        <li><a href="service.html">サービス</a></li>
-                        <li><a href="team.html">人物紹介</a></li>
-                        <li><a href="history.html">沿革</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Product</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://www.wildcatcher.jp/" target="_blank">WildCatcher 公式サイト</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 ReCorta LLC. All rights reserved.</span>
-                <span>合同会社ReCorta</span>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
-        window.addEventListener('scroll', () => {
-            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-        });
+      }
     </script>
-</body>
-
+  </head>
+  <body class="corporate">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="wrap nav-wrap">
+        <a class="brand" href="index.html"
+          ><img src="assets/icon.png" alt="" width="36" height="36" /><span
+            >RecorTa</span
+          ></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="navigation"
+          aria-expanded="false"
+          hidden
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="index.html">ホーム</a><a href="about.html">会社概要</a
+          ><a href="service.html">製品・サービス</a
+          ><a href="team.html" aria-current="page">創業メンバー</a
+          ><a href="history.html">沿革</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <header class="page-intro wrap">
+        <p class="eyebrow">People</p>
+        <h1>創業メンバー</h1>
+        <p class="lead">
+          現場の声を受け止めることと、道具として実装すること。その両方を大切に、製品を育てています。
+        </p>
+      </header>
+      <section class="section">
+        <div class="wrap">
+          <div class="people">
+            <article>
+              <p class="role">代表社員 / 共同創業者</p>
+              <h2>辰巳 海斗</h2>
+              <p class="name-en" lang="en">Kaito Tatsumi</p>
+              <p>
+                事業運営とお客様との窓口を担当。導入や評価利用の相談を通じて、現場で求められる機能や運用上の課題を製品づくりにつなげています。
+              </p>
+            </article>
+            <article>
+              <p class="role">共同創業者 / WildCatcher開発者</p>
+              <h2>Diego Alonso</h2>
+              <p class="name-en">ディエゴ・アロンソ</p>
+              <p>
+                WildCatcherの設計・開発に取り組むソフトウェア開発者。画像・動画解析と、結果の確認・修正を含む現場のワークフローを形にしています。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section alt">
+        <div class="wrap split center">
+          <figure>
+            <img
+              class="full-photo"
+              src="assets/founders.jpg"
+              width="960"
+              height="1280"
+              loading="lazy"
+              alt="対馬の夜間調査でライトを照らす創業メンバー"
+            />
+            <figcaption class="photo-caption">
+              2024年、対馬。ツシマヤマネコを探す現場で。
+            </figcaption>
+          </figure>
+          <div>
+            <div class="section-head">
+              <p class="eyebrow">From the field</p>
+              <h2>現場を知ることから、<br />開発を始める。</h2>
+            </div>
+            <p>
+              画像が何枚あるかだけでなく、誰が、どのように確認し、次の仕事につなげるのか。WildCatcherは、その流れに向き合うところから生まれました。
+            </p>
+            <p>
+              環境アセスメント支援ツールWildpassでも、記録する人と確認する人が同じ根拠をたどれる仕事の進め方を目指しています。
+            </p>
+            <a class="button secondary" href="service.html"
+              >製品・サービスを見る<span aria-hidden="true"> →</span></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="index.html">RecorTa</a>
+            <p>現場の記録を、確かな判断につなぐ。</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">ホーム</a><a href="about.html">会社概要</a
+            ><a href="service.html">製品・サービス</a
+            ><a href="team.html" aria-current="page">創業メンバー</a
+            ><a href="history.html">沿革</a>
+          </div>
+          <div class="footer-links">
+            <a href="https://www.recorta.jp/">合同会社ReCorta</a
+            ><a href="https://www.wildcatcher.jp/">WildCatcher</a
+            ><a href="https://www.recorta.jp/service.html#wildpass"
+              >Wildpass · 開発中</a
+            ><a href="mailto:diegoalonsojapan@gmail.com">お問い合わせ</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 合同会社ReCorta</span
+          ><span>東京都西東京市 · 2026年9月9日設立</span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
