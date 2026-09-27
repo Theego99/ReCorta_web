@@ -20,6 +20,10 @@ The name is **ReCorta**, with capital R and C. The owner-supplied circular wildl
 
 The corporate palette is sampled from this logo: light green `#BBE285`, sky blue `#9ADAFE`, white and near-black `#141819`. Pale green and blue surfaces extend the palette; a darker blue `#20586F` is used for readable links and text accents. Primary buttons use green with dark text. The corporate logo and palette are separate from WildCatcher product branding.
 
+## Japanese search identity
+
+Use **ReCorta（レコルタ）** for the bilingual public name, while keeping the registered legal name **合同会社ReCorta** unchanged. The reading appears in the visible header/footer and company profile, page titles and descriptions, and Open Graph metadata. Organization structured data lists レコルタ as an alternate name; the homepage also declares the WebSite name and its alternatives. Keep those names consistent when editing pages. The canonical domain is `https://www.recorta.jp/`; the sitemap is declared in `robots.txt`, and the 404 page remains `noindex`. Preserve the homepage Google site-verification tag to retain the owner’s Search Console verification.
+
 ## Content maintenance
 
 Updated September 12, 2026. The incorporation date is September 9, 2026. The legal name is 合同会社ReCorta; the public brand is ReCorta. The representative member is 辰巳海斗. Do not use 株式会社 titles such as 代表取締役 in the company profile.
