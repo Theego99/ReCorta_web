@@ -26,8 +26,8 @@ Use **ReCorta（レコルタ）** for the bilingual public name, while keeping t
 
 ## Content maintenance
 
-Updated September 12, 2026. The incorporation date is September 9, 2026. The legal name is 合同会社ReCorta; the public brand is ReCorta. The representative member is 辰巳海斗. Do not use 株式会社 titles such as 代表取締役 in the company profile.
+Registration information updated September 27, 2026. The incorporation date is September 9, 2026. The legal name is 合同会社ReCorta; the public brand is ReCorta. The representative member is 辰巳海斗. Do not use 株式会社 titles such as 代表取締役 in the company profile.
 
-The incorporation filing is awaiting completion as of this update. Add the corporate number and revise the status only after confirmation. Wildpass is in development/pilot verification; do not describe it as a general production release or an automated legal assessment service.
+The incorporation registration is complete. The owner supplied company registry number (会社法人等番号) **0127-03-003624**. The National Tax Agency record confirms corporate number (法人番号) **1012703003624**, assigned September 18, 2026: https://www.houjin-bangou.nta.go.jp/henkorireki-johoto.html?selHouzinNo=1012703003624 . The corporate number assignment date is distinct from the September 9 incorporation date. Both identifiers are published with their correct labels and included in Organization structured data. Wildpass is in development/pilot verification; do not describe it as a general production release or an automated legal assessment service.
 
 No private correspondence, registration attachments, personal addresses, seals, banking information, license keys, or customer data are published in this repository. Update canonical links and `sitemap.xml` when changing routes.
