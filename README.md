@@ -16,9 +16,9 @@ Shared presentation and accessible navigation are in `style.css` and `site.js`. 
 
 ## Brand
 
-The name is **ReCorta**, with capital R and C. The corporate logo shows a feline, salamander and bear on the inside of a circular world. `assets/recorta-logo.png` is the transparent 512px image; the navigation, favicon and Apple touch icon use smaller derivatives. The mark was created with the built-in image generator; only image sizing was adjusted for web delivery.
+The name is **ReCorta**, with capital R and C. The owner-supplied circular wildlife logo, including its ReCorta lettering, is preserved in `assets/recorta-logo-2026-source.jpg` (received September 27, 2026). The 512px logo, 192px navigation image, 32px favicon and 180px Apple touch icon are optimized derivatives with only the outer white margin trimmed and image sizing adjusted. The artwork and its white background are unchanged.
 
-The wordmark restores the original forest green `#0A1710` and terracotta `#C47854`, with the initial R in terracotta. The new corporate mark is distinct from the WildCatcher product logo.
+The corporate palette is sampled from this logo: light green `#BBE285`, sky blue `#9ADAFE`, white and near-black `#141819`. Pale green and blue surfaces extend the palette; a darker blue `#20586F` is used for readable links and text accents. Primary buttons use green with dark text. The corporate logo and palette are separate from WildCatcher product branding.
 
 ## Content maintenance
 

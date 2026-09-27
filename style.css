@@ -1,14 +1,15 @@
 :root {
-  --brand-green: #0a1710;
-  --brand-terracotta: #c47854;
-  --bg: #f6f3ec;
+  --brand-green: #bbe285;
+  --brand-blue: #9adafe;
+  --bg: #fff;
   --surface: #fff;
-  --ink: #142f24;
-  --muted: #53665b;
-  --line: #d1dbd3;
-  --accent: #225c40;
+  --ink: #141819;
+  --muted: #4b585e;
+  --line: #cbd9de;
+  --accent: #20586f;
   --contrast: #fff;
-  --soft: #e7ece5;
+  --soft: #eff9ff;
+  --soft-green: #f0f8e6;
   --serif: "Yu Mincho", "Hiragino Mincho ProN", Georgia, serif;
   --sans:
     "BIZ UDPGothic", "Yu Gothic", "Hiragino Kaku Gothic ProN", system-ui,
@@ -27,16 +28,6 @@ body {
   color: var(--ink);
   font: 400 1rem/1.9 var(--sans);
   -webkit-font-smoothing: antialiased;
-}
-body.product {
-  --bg: #0b2017;
-  --surface: #142d22;
-  --ink: #eff7f1;
-  --muted: #b9cdbe;
-  --line: #365344;
-  --accent: #a9e778;
-  --contrast: #102218;
-  --soft: #183b2b;
 }
 a {
   color: inherit;
@@ -112,7 +103,7 @@ summary {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  min-height: 88px;
+  min-height: 104px;
 }
 .brand {
   display: inline-flex;
@@ -130,18 +121,15 @@ summary {
   border-radius: 50%;
 }
 .corporate .brand-wordmark {
-  color: var(--brand-green);
+  color: var(--ink);
   font-family: var(--serif);
   font-weight: 900;
   letter-spacing: -0.02em;
 }
-.corporate .brand-initial {
-  color: var(--brand-terracotta);
-}
 .corporate .brand-mark {
-  width: 56px;
-  height: 56px;
-  flex: 0 0 56px;
+  width: 80px;
+  height: 80px;
+  flex: 0 0 80px;
   border-radius: 0;
 }
 nav {
@@ -156,7 +144,9 @@ nav a {
 }
 nav a[aria-current] {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-color: var(--brand-green);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 0.5em;
 }
 .menu-toggle {
   border: 1px solid var(--line);
@@ -193,6 +183,7 @@ nav a[aria-current] {
 }
 .hero {
   padding: 4.5rem 0 4rem;
+  background: linear-gradient(115deg, var(--surface) 55%, var(--soft));
 }
 .hero-grid {
   display: grid;
@@ -229,19 +220,6 @@ nav a[aria-current] {
   justify-content: space-between;
   gap: 1rem;
 }
-.product .hero-image {
-  border: 1px solid var(--line);
-  background: #06150f;
-  padding: 0.75rem;
-}
-.product .hero-image img {
-  height: auto;
-  aspect-ratio: 4/3;
-  object-fit: contain;
-}
-.product .hero-image figcaption {
-  padding: 0.8rem 0.5rem 0.3rem;
-}
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -256,21 +234,21 @@ nav a[aria-current] {
   gap: 1.5rem;
   min-height: 52px;
   padding: 0.8rem 1.3rem;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--ink);
   border-radius: 3px;
-  background: var(--accent);
-  color: var(--contrast);
+  background: var(--brand-green);
+  color: var(--ink);
   font-weight: 600;
   text-decoration: none;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 .button:hover {
-  color: var(--contrast);
-  filter: brightness(0.94);
+  background: var(--brand-blue);
+  color: var(--ink);
 }
 .button.secondary {
-  background: transparent;
+  background: var(--surface);
   color: var(--ink);
   border-color: var(--line);
 }
@@ -385,6 +363,7 @@ nav a[aria-current] {
 }
 .status {
   display: inline-flex;
+  background: var(--soft);
   border: 1px solid var(--line);
   padding: 0.3rem 0.7rem;
   font-size: 0.875rem;
@@ -392,7 +371,9 @@ nav a[aria-current] {
   font-weight: 500;
 }
 .status.live {
-  color: var(--accent);
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: var(--ink);
 }
 .tags {
   display: flex;
@@ -412,29 +393,31 @@ nav a[aria-current] {
   margin-top: 1rem;
 }
 .cta {
-  background: #153627;
-  color: #f6f3ec;
+  background: var(--brand-blue);
+  color: var(--ink);
   padding: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  border: 1px solid #42654c;
+  border: 1px solid var(--brand-blue);
   border-radius: 3px;
 }
 .cta h2 {
   font-size: 1.9rem;
 }
 .cta p {
-  color: #c6d8ca;
+  color: var(--ink);
 }
 .cta .button {
-  --accent: #b4e988;
-  --contrast: #12261b;
   flex-shrink: 0;
+}
+.cta .button:hover {
+  background: var(--surface);
 }
 .page-intro {
   padding: 4.5rem 0 3rem;
+  background: linear-gradient(180deg, var(--soft-green), var(--surface));
 }
 .page-intro h1 {
   font-size: clamp(2.4rem, 4.4vw, 4rem);
@@ -460,9 +443,9 @@ nav a[aria-current] {
   margin: 0;
 }
 .notice {
-  border-left: 3px solid var(--accent);
+  border-left: 4px solid var(--brand-green);
   padding: 1.2rem 1.5rem;
-  background: var(--soft);
+  background: var(--soft-green);
   margin-top: 2rem;
 }
 .timeline {
@@ -493,7 +476,7 @@ nav a[aria-current] {
 }
 .people article {
   padding: 2.5rem;
-  border-top: 2px solid var(--accent);
+  border-top: 4px solid var(--brand-blue);
   background: var(--surface);
 }
 .people .role {
@@ -615,9 +598,29 @@ caption {
   color: var(--muted);
 }
 .site-footer {
-  border-top: 1px solid var(--line);
+  border-top: 6px solid var(--brand-green);
   padding: 3.5rem 0 1.5rem;
   margin-top: 1rem;
+}
+.corporate .site-footer .brand-mark {
+  width: 96px;
+  height: 96px;
+  flex-basis: 96px;
+}
+.error-page {
+  min-height: 100vh;
+  background: var(--soft);
+}
+.error-content {
+  max-width: 44rem;
+  margin: 8vh auto;
+  padding: 2rem;
+}
+.error-content .brand {
+  margin-bottom: 2rem;
+}
+.error-content h1 {
+  font-size: clamp(1.8rem, 5vw, 2.7rem);
 }
 .footer-top {
   display: grid;
@@ -668,8 +671,8 @@ caption {
   .nav-wrap {
     flex-wrap: wrap;
     gap: 1rem;
-    padding-block: 1rem;
-    min-height: 76px;
+    min-height: 96px;
+    padding-block: 0.5rem;
   }
   nav {
     width: 100%;
@@ -736,9 +739,6 @@ caption {
   .hero-image img {
     height: 390px;
     object-position: 50% 77%;
-  }
-  .product .hero-image img {
-    height: auto;
   }
   .facts {
     grid-template-columns: 1fr;
@@ -824,15 +824,6 @@ caption {
   .actions,
   .skip-link {
     display: none;
-  }
-  body.product {
-    --bg: #fff;
-    --surface: #fff;
-    --ink: #111;
-    --muted: #333;
-    --accent: #174d31;
-    --line: #ccc;
-    --soft: #eee;
   }
   .section,
   .page-intro {
