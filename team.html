@@ -41,31 +41,70 @@
       href="assets/recorta-apple-touch-icon-2026.png"
       sizes="180x180"
     />
-    <link rel="stylesheet" href="style.css?v=20260927-katakana" />
+    <link rel="stylesheet" href="style.css?v=20261007-seo" />
     <script src="site.js?v=20260912" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ReCorta",
-        "logo": "https://www.recorta.jp/assets/recorta-logo-2026.png",
-        "legalName": "合同会社ReCorta",
-        "url": "https://www.recorta.jp/",
-        "foundingDate": "2026-09-09",
-        "email": "diegoalonsojapan@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "西東京市",
-          "addressRegion": "東京都",
-          "addressCountry": "JP"
-        },
-        "@id": "https://www.recorta.jp/#organization",
-        "alternateName": ["レコルタ", "ReCorta（レコルタ）"],
-        "identifier": [
+        "@graph": [
           {
-            "@type": "PropertyValue",
-            "propertyID": "法人番号",
-            "value": "1012703003624"
+            "@type": "Organization",
+            "name": "ReCorta",
+            "logo": "https://www.recorta.jp/assets/recorta-logo-2026.png",
+            "legalName": "合同会社ReCorta",
+            "url": "https://www.recorta.jp/",
+            "foundingDate": "2026-09-09",
+            "email": "diegoalonsojapan@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "西東京市",
+              "addressRegion": "東京都",
+              "addressCountry": "JP"
+            },
+            "@id": "https://www.recorta.jp/#organization",
+            "alternateName": ["レコルタ", "ReCorta（レコルタ）"],
+            "identifier": [
+              {
+                "@type": "PropertyValue",
+                "propertyID": "法人番号",
+                "value": "1012703003624"
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.recorta.jp/team.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "ReCorta（レコルタ）",
+                "item": "https://www.recorta.jp/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "創業メンバー",
+                "item": "https://www.recorta.jp/team.html"
+              }
+            ]
+          },
+          {
+            "@type": "AboutPage",
+            "@id": "https://www.recorta.jp/team.html#webpage",
+            "url": "https://www.recorta.jp/team.html",
+            "name": "創業メンバー | ReCorta（レコルタ）",
+            "description": "合同会社ReCorta（レコルタ）の創業メンバー。代表社員 辰巳海斗と、共同創業者・WildCatcher開発者 Diego Alonsoを紹介します。",
+            "inLanguage": "ja-JP",
+            "isPartOf": {
+              "@id": "https://www.recorta.jp/#website"
+            },
+            "about": {
+              "@id": "https://www.recorta.jp/#organization"
+            },
+            "breadcrumb": {
+              "@id": "https://www.recorta.jp/team.html#breadcrumb"
+            }
           }
         ]
       }
@@ -75,10 +114,7 @@
     <a class="skip-link" href="#main">本文へ移動</a>
     <header class="site-header">
       <div class="wrap nav-wrap">
-        <a
-          class="brand"
-          href="index.html"
-          aria-label="ReCorta（レコルタ）ホーム"
+        <a class="brand" href="/" aria-label="ReCorta（レコルタ）ホーム"
           ><img
             class="brand-mark"
             src="assets/recorta-logo-nav-2026.png"
@@ -99,7 +135,7 @@
           メニュー
         </button>
         <nav id="navigation" aria-label="メインナビゲーション">
-          <a href="index.html">ホーム</a><a href="about.html">会社概要</a
+          <a href="/">ホーム</a><a href="about.html">会社概要</a
           ><a href="service.html">製品・サービス</a
           ><a href="team.html" aria-current="page">創業メンバー</a
           ><a href="history.html">沿革</a>
@@ -107,11 +143,18 @@
       </div>
     </header>
     <main id="main">
+      <nav class="breadcrumbs wrap" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="/">ReCorta（レコルタ）</a></li>
+          <li><span aria-current="page">創業メンバー</span></li>
+        </ol>
+      </nav>
       <header class="page-intro wrap">
         <p class="eyebrow">People</p>
         <h1>創業メンバー</h1>
         <p class="lead">
-          現場の声を受け止めることと、道具として実装すること。その両方を大切に、製品を育てています。
+          合同会社ReCorta（レコルタ）は、代表社員の辰巳海斗と共同創業者のDiego
+          Alonsoが、事業運営とソフトウェア開発を担っています。現場の声を受け止め、製品づくりにつなげます。
         </p>
       </header>
       <section class="section">
@@ -173,10 +216,7 @@
       <div class="wrap">
         <div class="footer-top">
           <div>
-            <a
-              class="brand"
-              href="index.html"
-              aria-label="ReCorta（レコルタ）ホーム"
+            <a class="brand" href="/" aria-label="ReCorta（レコルタ）ホーム"
               ><img
                 class="brand-mark"
                 src="assets/recorta-logo-nav-2026.png"
@@ -190,7 +230,7 @@
             <p>現場の記録を、確かな判断につなぐ。</p>
           </div>
           <div class="footer-links">
-            <a href="index.html">ホーム</a><a href="about.html">会社概要</a
+            <a href="/">ホーム</a><a href="about.html">会社概要</a
             ><a href="service.html">製品・サービス</a
             ><a href="team.html" aria-current="page">創業メンバー</a
             ><a href="history.html">沿革</a>

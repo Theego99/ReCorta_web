@@ -31,3 +31,11 @@ Registration information updated September 27, 2026. The incorporation date is S
 The incorporation registration is complete. The corporate number (法人番号) **1012703003624** was verified and assigned September 18, 2026. The assignment date is distinct from the September 9 incorporation date. Publish only this 13-digit corporate number in the company profile and Organization structured data. Do not add the separate company registry number or links to the registry search. Wildpass is in development/pilot verification; do not describe it as a general production release or an automated legal assessment service.
 
 No private correspondence, registration attachments, personal addresses, seals, banking information, license keys, or customer data are published in this repository. Update canonical links and `sitemap.xml` when changing routes.
+
+## Search indexing maintenance
+
+All home links must point to `/`, matching the homepage canonical and sitemap. GitHub Pages also serves `index.html`; its canonical intentionally points to `/`. Search Console's “Alternate page with proper canonical tag” for this duplicate is expected, not a reason to remove the canonical or add `noindex` to the homepage.
+
+Each content page has a self-referencing canonical URL, a unique Japanese title and description, and WebPage structured data linked to the shared Organization and WebSite. The four inner pages include visible breadcrumbs and matching BreadcrumbList data. Keep structured data consistent with visible content and preserve crawlable HTML links even without JavaScript. Mobile menu rules apply only to `#navigation`, not breadcrumb navigation.
+
+Keep the sitemap limited to the five canonical content URLs, excluding `index.html` and `404.html`. Update `lastmod` only when the corresponding page actually changes; do not regenerate dates on every deployment. A successful sitemap submission or live URL test does not guarantee indexing or ranking. For an uncrawled page, inspect and test its live URL in Search Console, then request indexing once after publishing improvements. Do not repeatedly request indexing, block duplicate URLs in robots.txt, or use the Indexing API for these ordinary corporate pages.
