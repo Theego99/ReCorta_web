@@ -138,17 +138,17 @@ summary {
   flex: 0 0 80px;
   border-radius: 0;
 }
-nav {
+#navigation {
   display: flex;
   align-items: center;
   gap: 1.65rem;
 }
-nav a {
+#navigation a {
   font-size: 0.9rem;
   text-decoration: none;
   white-space: nowrap;
 }
-nav a[aria-current] {
+#navigation a[aria-current] {
   text-decoration: underline;
   text-decoration-color: var(--brand-green);
   text-decoration-thickness: 4px;
@@ -421,6 +421,27 @@ nav a[aria-current] {
 .cta .button:hover {
   background: var(--surface);
 }
+.breadcrumbs {
+  padding-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.breadcrumbs li + li {
+  margin: 0;
+}
+.breadcrumbs li + li::before {
+  content: "／";
+  margin-right: 0.8rem;
+}
 .page-intro {
   padding: 4.5rem 0 3rem;
   background: linear-gradient(180deg, var(--soft-green), var(--surface));
@@ -666,7 +687,7 @@ caption {
   .menu-toggle {
     display: none !important;
   }
-  nav {
+  #navigation {
     display: flex !important;
   }
 }
@@ -680,7 +701,7 @@ caption {
     min-height: 96px;
     padding-block: 0.5rem;
   }
-  nav {
+  #navigation {
     width: 100%;
     flex-wrap: wrap;
     gap: 1rem;
@@ -689,7 +710,7 @@ caption {
   .menu-toggle:not([hidden]) {
     display: block;
   }
-  .js nav:not(.open) {
+  .js #navigation:not(.open) {
     display: none;
   }
   .hero-grid {
