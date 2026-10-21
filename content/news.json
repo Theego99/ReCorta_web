@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "slug": "wildcatcher-2-2-6",
+      "date": "2026-10-14",
+      "category": {
+        "ja": "製品アップデート",
+        "en": "Product update",
+        "es": "Actualización de producto"
+      },
+      "url": "https://github.com/Theego99/WildCatcher-releases/releases/tag/v2.2.6",
+      "translations": {
+        "ja": {
+          "title": "WildCatcher 2.2.6を公開しました",
+          "summary": "Windows版とmacOS版を2.2.6に更新しました。Windows版では、別のアプリやCLIがインストールを使用中の場合も、作業を守りながら更新を再試行できます。",
+          "paragraphs": [
+            "WildCatcher 2.2.6を公開しました。Windows版では、別のWildCatcherまたはCLIが動作中の場合に、ダウンロードと再起動の前にお知らせします。更新を再試行することで、もう一度ファイルを取得せず、同じ更新ファイルを使ってインストールできます。",
+            "macOS版も2.2.6を提供しています。Apple SiliconとIntelの両方に対応しています。最新版のダウンロードとリリースノートは公式配布ページをご確認ください。"
+          ],
+          "link": "WildCatcher 2.2.6のリリースノートを見る"
+        },
+        "en": {
+          "title": "WildCatcher 2.2.6 is available",
+          "summary": "WildCatcher 2.2.6 is available for Windows and macOS. The Windows updater can now retry safely when another app or CLI job is using the installation.",
+          "paragraphs": [
+            "WildCatcher 2.2.6 is now available. On Windows, the updater checks for another WildCatcher instance or CLI job before downloading and restarting. If another process is using the installation, you can finish your other work and retry using the same downloaded update.",
+            "Version 2.2.6 is also available for macOS, with support for Apple Silicon and Intel. Find current downloads and full release notes on the official release page."
+          ],
+          "link": "Read the WildCatcher 2.2.6 release notes"
+        },
+        "es": {
+          "title": "WildCatcher 2.2.6 ya está disponible",
+          "summary": "WildCatcher 2.2.6 ya está disponible para Windows y macOS. El actualizador de Windows puede reintentar de forma segura cuando otra aplicación o tarea CLI está utilizando la instalación.",
+          "paragraphs": [
+            "WildCatcher 2.2.6 ya está disponible. En Windows, el actualizador busca otras instancias de WildCatcher o tareas CLI antes de descargar e instalar. Si otro proceso está utilizando la instalación, puedes terminar el otro trabajo y reintentar con la misma actualización descargada.",
+            "La versión 2.2.6 también está disponible para macOS y es compatible con Apple Silicon e Intel. Consulta las descargas actuales y todas las notas en la página oficial de lanzamientos."
+          ],
+          "link": "Leer las notas de WildCatcher 2.2.6"
+        }
+      }
+    }
+  ]
+}

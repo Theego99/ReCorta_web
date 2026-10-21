@@ -2,40 +2,28 @@
 
 Public site: https://www.recorta.jp/
 
-Static Japanese website published by GitHub Pages from `main` at the repository root. Keep `CNAME` set to `www.recorta.jp`. There is no package installation or compilation step.
+The site is a static Japanese, English and Spanish website published by GitHub Pages from the repository root. Keep CNAME set to www.recorta.jp. Python's standard library builds the pages; no package installation is required.
 
-## Pages
+## Pages and languages
 
-- `index.html`: introduction, products, and current news.
-- `about.html`: company profile and incorporation status.
-- `service.html`: WildCatcher, Wildpass, and consulting enquiries.
-- `team.html`: founders and their roles.
-- `history.html`: company and product timeline.
+Japanese is at the root (/). English lives in /en/ and Spanish in /es/. Each language has Home, Company, Products, Team, History and News pages, plus a translated detail page for every news post. Language links open the same page in the selected language.
 
-Shared presentation and accessible navigation are in `style.css` and `site.js`. Core content and navigation work without JavaScript. The WebP photos are optimized copies of existing site assets; original photographs remain available in `assets`.
+build_site.py generates the HTML pages, per-page canonical and alternate-language links, structured data, and the XML sitemap. The generated pages remain ordinary, crawlable HTML if JavaScript is disabled.
 
-## Brand
+## Visual identity
 
-The name is **ReCorta**, with capital R and C. The owner-supplied circular wildlife logo, including its ReCorta lettering, is preserved in `assets/recorta-logo-2026-source.jpg` (received September 27, 2026). The 512px logo, 192px navigation image, 32px favicon and 180px Apple touch icon are optimized derivatives with only the outer white margin trimmed and image sizing adjusted. The artwork and its white background are unchanged.
+The logo and palette are supplied in assets/brand/. The official colours are blue #4160AC, Spanish red #D71428 and leafy green #50AF3E. The custom ReCorta font is assets/brand/ReCorta-Regular.otf; it includes the accented characters used in Spanish. The logo and the yamaneko, salamander and wolf illustrations are used throughout the site. These files are copied from C:\Users\dalca\OneDrive\Recorta\assets during the first build and kept in this repository for later builds.
 
-The corporate palette is sampled from this logo: light green `#BBE285`, sky blue `#9ADAFE`, white and near-black `#141819`. Pale green and blue surfaces extend the palette; a darker blue `#20586F` is used for readable links and text accents. Primary buttons use green with dark text. The corporate logo and palette are separate from WildCatcher product branding.
+## News and announcements
 
-## Japanese search identity
+Write posts in content/news.json. Each post has a unique URL slug, publication date, topic label, official source link and Japanese, English and Spanish copy. Duplicate all three translations whenever adding an announcement. Then run python build_site.py from the repository folder; the builder adds the post to every News archive and creates its three localized detail pages and sitemap entries. Use accurate event dates and locations, and confirm that any announcement is suitable for the public website before adding it.
 
-Use **ReCorta（レコルタ）** for the bilingual public name, while keeping the registered legal name **合同会社ReCorta** unchanged. The reading appears in the visible header/footer and company profile, page titles and descriptions, and Open Graph metadata. Organization structured data lists レコルタ as an alternate name; the homepage also declares the WebSite name and its alternatives. Keep those names consistent when editing pages. The canonical domain is `https://www.recorta.jp/`; the sitemap is declared in `robots.txt`, and the 404 page remains `noindex`. Preserve the homepage Google site-verification tag to retain the owner’s Search Console verification.
+content/site.json holds the translated site wording and factual company details. After editing it, run the builder to regenerate the site. Keep the product descriptions current while preserving the distinction between the available WildCatcher app and the Wildpass EIA toolkit, which is still in pilot development.
 
-## Content maintenance
+## Search and company details
 
-Registration information updated September 27, 2026. The incorporation date is September 9, 2026. The legal name is 合同会社ReCorta; the public brand is ReCorta. The representative member is 辰巳海斗. Do not use 株式会社 titles such as 代表取締役 in the company profile.
+Every language version has a self-referencing canonical, hreflang alternates, a unique page title and description, and structured data for ReCorta. The homepage's Google Search Console verification tag must stay in the Japanese root page. The index.html root duplicate intentionally points to / as its canonical.
 
-The incorporation registration is complete. The corporate number (法人番号) **1012703003624** was verified and assigned September 18, 2026. The assignment date is distinct from the September 9 incorporation date. Publish only this 13-digit corporate number in the company profile and Organization structured data. Do not add the separate company registry number or links to the registry search. Wildpass is in development/pilot verification; do not describe it as a general production release or an automated legal assessment service.
+The company legal name is 合同会社ReCorta; its registered name must not be changed to a stock company. The representative member is 辰巳海斗. Publish only the confirmed 13-digit Japanese corporate number 1012703003624; do not add the separate company registry number or links to the national registry search. No private correspondence, registration documents, personal home address, seals, banking information, customer data or licence keys belong in this repository.
 
-No private correspondence, registration attachments, personal addresses, seals, banking information, license keys, or customer data are published in this repository. Update canonical links and `sitemap.xml` when changing routes.
-
-## Search indexing maintenance
-
-All home links must point to `/`, matching the homepage canonical and sitemap. GitHub Pages also serves `index.html`; its canonical intentionally points to `/`. Search Console's “Alternate page with proper canonical tag” for this duplicate is expected, not a reason to remove the canonical or add `noindex` to the homepage.
-
-Each content page has a self-referencing canonical URL, a unique Japanese title and description, and WebPage structured data linked to the shared Organization and WebSite. The four inner pages include visible breadcrumbs and matching BreadcrumbList data. Keep structured data consistent with visible content and preserve crawlable HTML links even without JavaScript. Mobile menu rules apply only to `#navigation`, not breadcrumb navigation.
-
-Keep the sitemap limited to the five canonical content URLs, excluding `index.html` and `404.html`. Update `lastmod` only when the corresponding page actually changes; do not regenerate dates on every deployment. A successful sitemap submission or live URL test does not guarantee indexing or ranking. For an uncrawled page, inspect and test its live URL in Search Console, then request indexing once after publishing improvements. Do not repeatedly request indexing, block duplicate URLs in robots.txt, or use the Indexing API for these ordinary corporate pages.
+The incorporation date is September 9, 2026. WildCatcher 2.2.6 is the latest release for Windows and macOS as of October 21, 2026. Wildpass is an EIA toolkit under development and pilot evaluation; do not describe it as a released service, a legal compliance check or automated expert decision.
