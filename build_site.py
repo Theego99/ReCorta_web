@@ -150,9 +150,8 @@ def header(lang: str, current: str, t: dict) -> str:
     return f'''<a class="skip-link" href="#main">{e(t["skip"])}</a>
 <header class="site-header"><div class="header-wrap wrap">
   <div class="header-top">
-    <a class="brand" href="{e(path_for(lang, "index"))}" aria-label="ReCorta">
-      <img src="/assets/brand/recorta-logo.svg" width="74" height="74" alt=""/>
-      <span><strong class="latin">ReCorta</strong><small>レコルタ</small></span>
+    <a class="brand" href="{e(path_for(lang, "index"))}">
+      <img src="/assets/brand/recorta-logo.svg" width="96" height="96" alt="ReCorta（レコルタ）"/>
     </a>
     <div class="header-actions">
       <nav class="language-switch" aria-label="{e(t["langLabel"])}">{lang_buttons}</nav>
@@ -171,15 +170,14 @@ def footer(lang: str, t: dict) -> str:
     )
     return f'''<footer class="site-footer"><div class="wrap footer-main">
   <div><a class="brand footer-brand" href="{e(path_for(lang,"index"))}">
-    <img src="/assets/brand/recorta-logo.svg" width="58" height="58" alt=""/>
-    <span><strong class="latin">ReCorta</strong><small>レコルタ</small></span>
+    <img src="/assets/brand/recorta-logo.svg" width="88" height="88" alt="ReCorta（レコルタ）"/>
   </a><p>{e(t["tagline"])}</p></div>
   <div class="footer-nav"><h2>{e(t["nav"][0])}</h2>{nav}</div>
   <div><h2>{e(t["contact"])}</h2>
     <a href="mailto:diegoalonsojapan@gmail.com">diegoalonsojapan@gmail.com</a>
     <p>{e(t["locationValue"])}</p></div>
 </div><div class="wrap footer-bottom"><span>{e(t["copyright"])}</span>
-  <span>ReCorta · Field science &amp; technology</span></div></footer>'''
+  <span>Field science &amp; technology</span></div></footer>'''
 
 
 def crumbs(lang: str, t: dict, label: str = "") -> str:
@@ -214,7 +212,7 @@ def shell(lang: str, page: str, title: str, description: str,
 {verification}  <meta property="og:image:type" content="image/svg+xml"/>
   <meta name="theme-color" content="#4160ac"/>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/recorta-logo.svg"/>
-  <link rel="stylesheet" href="/style.css?v=20261021-brand"/>
+  <link rel="stylesheet" href="/style.css?v=20261021-logo-only"/>
   <script src="/site.js?v=20261021-languages" defer></script>
   <script type="application/ld+json">{schema_json}</script>
 </head><body class="site-page" data-language="{e(lang)}">
@@ -371,7 +369,7 @@ def page(lang: str, key: str, t: dict, posts: list[dict]) -> str:
         )
         body = content + f'''<section class="section"><div class="wrap history-layout">
   <ol class="timeline">{events}</ol>
-  <aside class="history-aside"><img src="/assets/brand/recorta-logo.svg" width="152" height="152" alt=""/>
+  <aside class="history-aside"><img src="/assets/brand/recorta-logo.svg" width="152" height="152" alt="ReCorta（レコルタ）"/>
     <p class="eyebrow">{e(t["companyDetails"])}</p><p>{e(t["tagline"])}</p>
     <a class="text-link" href="{e(path_for(lang,"about"))}">{e(t["nav"][1])} →</a>
   </aside></div></section>'''
@@ -459,8 +457,8 @@ def main() -> None:
         f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex"/><title>ページが見つかりません | ReCorta</title>
-<link rel="stylesheet" href="/style.css?v=20261021-brand"/></head>
-<body><main class="not-found wrap"><img src="/assets/brand/recorta-logo.svg" width="100" height="100" alt=""/>
+<link rel="stylesheet" href="/style.css?v=20261021-logo-only"/></head>
+<body><main class="not-found wrap"><img src="/assets/brand/recorta-logo.svg" width="100" height="100" alt="ReCorta（レコルタ）"/>
 <p class="eyebrow">404 / NOT FOUND</p><h1>お探しのページは見つかりません。</h1>
 <a class="button button-blue" href="/">ホームへ戻る</a>
 <nav class="language-switch" aria-label="Language"><a href="/en/">English</a><a href="/es/">Español</a></nav></main></body></html>
