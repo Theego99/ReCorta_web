@@ -1,6 +1,45 @@
 {
   "posts": [
     {
+      "slug": "wildlife-damage-summit-pre-event-2026",
+      "date": "2026-10-21",
+      "category": {
+        "ja": "イベント",
+        "en": "Event",
+        "es": "Evento"
+      },
+      "url": "https://www.plando.co.jp/choju-summit/",
+      "translations": {
+        "ja": {
+          "title": "第14回全国鳥獣被害対策サミット プレイベントに参加します",
+          "summary": "ReCortaは、10月26日にAP東京八重洲で開かれるプレイベントに参加します。自治体と専門事業者の対話から、現場の課題や連携について学びます。",
+          "paragraphs": [
+            "ReCortaは、2026年10月26日（月）10:00〜17:00にAP東京八重洲で開催される「第14回全国鳥獣被害対策サミット」のプレイベントに参加します。プログラムでは、自治体同士の課題共有や、専門性を持つ企業・団体の発表、意見交換が予定されています。",
+            "野生動物調査や環境アセスメントの現場で必要とされることを学び、実務に役立つ道具づくりにつなげたいと考えています。ご参加の皆さま、ぜひ会場でお声がけください。"
+          ],
+          "link": "主催者の開催案内を見る"
+        },
+        "en": {
+          "title": "ReCorta will attend the wildlife damage summit pre-event",
+          "summary": "ReCorta will attend the October 26 pre-event for the 14th National Wildlife Damage Countermeasures Summit at AP Tokyo Yaesu, where local governments and specialist organizations will discuss local challenges and practical collaboration.",
+          "paragraphs": [
+            "ReCorta will attend the pre-event for the 14th National Wildlife Damage Countermeasures Summit on Monday, October 26, 2026, from 10:00 to 17:00 at AP Tokyo Yaesu. The program includes exchanges among local governments, presentations by specialist organizations and companies, and opportunities to discuss practical solutions.",
+            "We hope to learn more about the needs of local teams working on wildlife surveys and environmental assessment, and to apply those insights to the tools we are building. If you are attending, we would be glad to say hello."
+          ],
+          "link": "View the organizer’s event details"
+        },
+        "es": {
+          "title": "ReCorta asistirá al acto previo de la cumbre sobre daños de fauna",
+          "summary": "ReCorta asistirá el 26 de octubre al acto previo de la 14.ª Cumbre Nacional de Medidas contra los Daños Causados por la Fauna Silvestre, en AP Tokyo Yaesu, donde administraciones locales y especialistas compartirán retos y posibles colaboraciones.",
+          "paragraphs": [
+            "ReCorta asistirá al acto previo de la 14.ª Cumbre Nacional de Medidas contra los Daños Causados por la Fauna Silvestre el lunes 26 de octubre de 2026, de 10:00 a 17:00, en AP Tokyo Yaesu. El programa incluye intercambio entre administraciones locales, presentaciones de organizaciones y empresas especializadas, y espacios para conversar sobre soluciones prácticas.",
+            "Esperamos conocer mejor las necesidades de los equipos locales que trabajan en estudios de fauna y evaluaciones ambientales, y aplicar esas ideas a las herramientas que estamos desarrollando. Si también asistes, nos encantará saludarte."
+          ],
+          "link": "Consultar la información del organizador"
+        }
+      }
+    },
+    {
       "slug": "wildcatcher-2-2-6",
       "date": "2026-10-14",
       "category": {
