@@ -59,7 +59,7 @@ p:last-child { margin-bottom: 0; }
 .header-wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; min-height: 100px; }
 .header-top { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .brand { display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; flex: 0 0 auto; }
-.brand img { width: 96px; height: 96px; object-fit: contain; }
+.brand img { width: 140px; height: 140px; object-fit: contain; }
 .header-actions { display: flex; align-items: center; gap: .75rem; }
 .language-switch { display: inline-flex; align-items: center; gap: .25rem; }
 .language-switch a {
@@ -235,7 +235,7 @@ p:last-child { margin-bottom: 0; }
 .site-footer { padding: 3.5rem 0 1.2rem; background: #1a2347; color: var(--white); }
 .footer-main { display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 3rem; padding-bottom: 2.5rem; }
 .footer-brand { margin-bottom: 1rem; }
-.footer-brand img { width: 88px; height: 88px; }
+.brand.footer-brand img { width: 88px; height: 88px; object-fit: contain; }
 .footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: .25rem 1rem; align-content: start; }
 .footer-main h2 { grid-column: 1 / -1; margin-bottom: .6rem; font-size: 1.2rem; }
 .footer-main a:not(.brand) { color: #fff; text-decoration-thickness: .05em; }
@@ -244,8 +244,8 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 1000px) {
   .header-wrap { display: block; padding-block: .7rem; }
-  .header-top { min-height: 74px; }
-  .brand img { width: 82px; height: 82px; }
+  .header-top { min-height: 122px; }
+  .brand img { width: 122px; height: 122px; }
   .primary-nav { justify-content: flex-start; gap: 1.2rem; padding: .65rem 0 .25rem; overflow-x: auto; }
   .primary-nav a { font-size: .82rem; }
   .hero-grid { gap: 1rem; }
@@ -256,12 +256,13 @@ p:last-child { margin-bottom: 0; }
   html { scroll-padding-top: 1rem; }
   .wrap { width: min(var(--wrap), calc(100% - 2rem)); }
   .header-wrap { padding-block: .35rem; }
-  .header-top { min-height: 64px; }
-  .brand img { width: 68px; height: 68px; }
+  .header-top { min-height: 96px; gap: .25rem; }
+  .brand img { width: 96px; height: 96px; }
   .header-actions { gap: .25rem; }
   .language-switch { gap: 0; }
   .language-switch a { min-width: 2.4rem; min-height: 2.3rem; padding: .2rem .45rem; font-size: .75rem; }
   .menu-toggle:not([hidden]) { display: inline-flex; }
+  .menu-toggle { padding: .4rem .55rem; font-size: .75rem; }
   .primary-nav { flex-wrap: wrap; padding: .75rem 0 .25rem; }
   .js .primary-nav:not(.open) { display: none; }
   .js .primary-nav.open { display: flex; }
