@@ -11,7 +11,7 @@ from xml.dom import minidom
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://www.recorta.jp"
-TODAY = "2026-10-21"
+TODAY = "2026-10-27"
 LANGS = ("ja", "en", "es")
 PAGES = ("index", "about", "service", "team", "history", "news")
 SOURCE = Path(r"C:\Users\dalca\OneDrive\Recorta\assets")
@@ -96,6 +96,21 @@ def schema(lang: str, page: str, title: str, description: str,
         webpage["@type"] = "AboutPage"
     if post:
         webpage["breadcrumb"] = {"@id": canonical + "#breadcrumb"}
+        article_schema = {
+            "@type": "BlogPosting", "@id": canonical + "#article",
+            "headline": post["translations"][lang]["title"],
+            "description": post["translations"][lang]["summary"],
+            "datePublished": post["date"], "dateModified": post["date"],
+            "inLanguage": webpage["inLanguage"],
+            "mainEntityOfPage": {"@id": canonical + "#webpage"},
+            "author": {"@id": BASE + "/#organization"},
+            "publisher": {"@id": BASE + "/#organization"},
+        }
+        if post.get("images"):
+            article_schema["image"] = [
+                BASE + "/assets/news/" + image["file"]
+                for image in post["images"]
+            ]
         graph.extend([
             {"@type": "BreadcrumbList", "@id": canonical + "#breadcrumb",
              "itemListElement": [
@@ -107,14 +122,7 @@ def schema(lang: str, page: str, title: str, description: str,
                  {"@type": "ListItem", "position": 3,
                   "name": post["translations"][lang]["title"], "item": canonical},
              ]},
-            {"@type": "BlogPosting", "@id": canonical + "#article",
-             "headline": post["translations"][lang]["title"],
-             "description": post["translations"][lang]["summary"],
-             "datePublished": post["date"], "dateModified": post["date"],
-             "inLanguage": webpage["inLanguage"],
-             "mainEntityOfPage": {"@id": canonical + "#webpage"},
-             "author": {"@id": BASE + "/#organization"},
-             "publisher": {"@id": BASE + "/#organization"}},
+            article_schema,
         ])
     elif page != "index":
         webpage["breadcrumb"] = {"@id": canonical + "#breadcrumb"}
@@ -190,12 +198,32 @@ def crumbs(lang: str, t: dict, label: str = "") -> str:
 </nav>'''
 
 
+def loader() -> str:
+    animals = "".join(
+        f'<img src="/assets/brand/{name}.svg" width="64" height="64" alt="" decoding="async"/>'
+        for name in ("yamaneko", "fox", "ezoshika", "kumaoyako", "aosagi", "sansyouuo")
+    )
+    return f'''<div class="site-loader" hidden aria-hidden="true">
+  <div class="loader-stage">
+    <span class="loader-orbit"></span>
+    <img class="loader-logo" src="/assets/brand/recorta-logo.svg" width="240" height="240" alt=""/>
+    <div class="loader-animals">{animals}</div>
+  </div>
+</div>'''
+
+
 def shell(lang: str, page: str, title: str, description: str,
           body: str, label: str = "", post: dict | None = None) -> str:
     canonical = full(post_path(lang, post["slug"])) if post else full(path_for(lang, page))
     locale = {"ja": "ja_JP", "en": "en_US", "es": "es_ES"}[lang]
     schema_json = schema(lang, page, title, description, canonical, label, post)
     article_type = "article" if post else "website"
+    social_image = (BASE + "/assets/news/" + post["images"][0]["file"]
+                    if post and post.get("images") else
+                    BASE + "/assets/brand/recorta-logo.svg")
+    social_image_type = "image/jpeg" if post and post.get("images") else "image/svg+xml"
+    social_image_alt = (post["images"][0]["alt"][lang]
+                        if post and post.get("images") else TEXT[lang]["logoAlt"])
     verification = ('  <meta name="google-site-verification" content="AGtMvbME9_p7O6w0GCPyxQbOeeC33mQJFybMO5lpgFI"/>\n'
                     if lang == "ja" and page == "index" else "")
     return f'''<!doctype html>
@@ -207,15 +235,16 @@ def shell(lang: str, page: str, title: str, description: str,
   <meta property="og:type" content="{article_type}"/><meta property="og:locale" content="{locale}"/>
   <meta property="og:site_name" content="{e('ReCorta（レコルタ）' if lang == 'ja' else 'ReCorta')}"/>
   <meta property="og:title" content="{e(title)}"/><meta property="og:description" content="{e(description)}"/>
-  <meta property="og:url" content="{e(canonical)}"/><meta property="og:image" content="{BASE}/assets/brand/recorta-logo.svg"/>
-  <meta property="og:image:alt" content="{e(TEXT[lang]['logoAlt'])}"/>
-{verification}  <meta property="og:image:type" content="image/svg+xml"/>
+  <meta property="og:url" content="{e(canonical)}"/><meta property="og:image" content="{e(social_image)}"/>
+  <meta property="og:image:alt" content="{e(social_image_alt)}"/>
+{verification}  <meta property="og:image:type" content="{e(social_image_type)}"/>
   <meta name="theme-color" content="#4160ac"/>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/recorta-logo.svg"/>
-  <link rel="stylesheet" href="/style.css?v=20261021-logo-large"/>
-  <script src="/site.js?v=20261021-languages" defer></script>
+  <link rel="stylesheet" href="/style.css?v=20261027-field-notes"/>
+  <script src="/site.js?v=20261027-orbit-loader" defer></script>
   <script type="application/ld+json">{schema_json}</script>
 </head><body class="site-page" data-language="{e(lang)}">
+  {loader()}
   {header(lang, page, TEXT[lang])}{crumbs(lang, TEXT[lang], label)}
   <main id="main">{body}</main>{footer(lang,TEXT[lang])}
 </body></html>
@@ -252,6 +281,9 @@ def home(lang: str, t: dict, posts: list[dict]) -> str:
   <img class="animal animal-cat" src="/assets/brand/yamaneko.svg" width="228" height="228" alt="{e(t["illustrationLabel"][0])}"/>
   <img class="animal animal-wolf" src="/assets/brand/wolf.svg" width="196" height="196" alt="{e(t["illustrationLabel"][2])}"/>
   <img class="animal animal-salamander" src="/assets/brand/sansyouuo.svg" width="176" height="176" alt="{e(t["illustrationLabel"][1])}"/>
+  <img class="animal animal-fox" src="/assets/brand/fox.svg" width="150" height="150" alt="" aria-hidden="true"/>
+  <img class="animal animal-deer" src="/assets/brand/ezoshika.svg" width="160" height="160" alt="" aria-hidden="true"/>
+  <img class="animal animal-bear" src="/assets/brand/kumaoyako.svg" width="156" height="156" alt="" aria-hidden="true"/>
   <span class="art-caption">FIELD NOTES <i>·</i> RECORTA</span>
 </div>'''
     body = f'''<section class="hero"><div class="wrap hero-grid">
@@ -280,7 +312,7 @@ def home(lang: str, t: dict, posts: list[dict]) -> str:
 </div></div></section>
 <section class="section values"><div class="wrap values-grid"><div>
   <p class="eyebrow">{e(t["principlesKicker"])}</p><h2>{e(t["principlesTitle"])}</h2>
-  <img class="value-illustration" src="/assets/brand/wolf.svg" width="230" height="230" alt="{e(t["illustrationLabel"][2])}"/>
+  <img class="value-illustration" src="/assets/brand/tsukinowaguma1.svg" width="230" height="230" alt=""/>
 </div><div class="principles">{principles}</div></div></section>
 <section class="section latest-news"><div class="wrap">
   <header class="section-heading section-heading-row"><div><p class="eyebrow">{e(t["newsKicker"])}</p><h2>{e(t["newsTitle"])}</h2></div>
@@ -322,7 +354,7 @@ def page(lang: str, key: str, t: dict, posts: list[dict]) -> str:
 </div></section>'''
     elif key == "service":
         title, desc, label, h1, lead = t["serviceTitle"], t["serviceDesc"], t["serviceKicker"], t["serviceH1"], t["serviceIntro"]
-        content = intro(label, h1, lead, "yamaneko", t["illustrationLabel"][0])
+        content = intro(label, h1, lead, "ezoshika", "")
         wild_list = "".join(f"<li>{e(x)}</li>" for x in t["wildFeatures"])
         eia_list = "".join(f"<li>{e(x)}</li>" for x in t["eiaFeatures"])
         body = content + f'''<section id="wildcatcher" class="section product-detail"><div class="wrap detail-grid">
@@ -348,7 +380,7 @@ def page(lang: str, key: str, t: dict, posts: list[dict]) -> str:
 </div></section>'''
     elif key == "team":
         title, desc, label, h1, lead = t["teamTitle"], t["teamDesc"], t["teamKicker"], t["teamH1"], t["teamIntro"]
-        content = intro(label, h1, lead, "wolf", t["illustrationLabel"][2])
+        content = intro(label, h1, lead, "aosagi", "")
         body = content + f'''<section class="section"><div class="wrap people-grid">
   <article class="person-card person-blue"><p class="eyebrow">{e(t["role1"])}</p><h2>{e(t["name1"])}</h2>
     <p class="latin roman-subtitle">{e(t["latin1"])}</p><p>{e(t["bio1"])}</p></article>
@@ -362,7 +394,7 @@ def page(lang: str, key: str, t: dict, posts: list[dict]) -> str:
   </div></div></section>'''
     elif key == "history":
         title, desc, label, h1, lead = t["historyTitle"], t["historyDesc"], t["historyKicker"], t["historyH1"], t["historyIntro"]
-        content = intro(label, h1, lead, "wolf", t["illustrationLabel"][2])
+        content = intro(label, h1, lead, "fox2", "")
         events = "".join(
             f'<li><time datetime="{e(iso)}">{e(printed)}</time><div><h2>{e(name)}</h2><p>{e(copy)}</p></div></li>'
             for iso, printed, name, copy in t["events"]
@@ -375,7 +407,7 @@ def page(lang: str, key: str, t: dict, posts: list[dict]) -> str:
   </aside></div></section>'''
     elif key == "news":
         title, desc, label, h1, lead = t["newsPageTitle"], t["newsDesc"], t["newsTitle"], t["newsH1"], t["newsLead"]
-        content = intro(label, h1, lead, "sansyouuo", t["illustrationLabel"][1])
+        content = intro(label, h1, lead, "akashobin", "")
         listings = "".join(card(post, lang, t) for post in sorted(posts, key=lambda x: x["date"], reverse=True))
         body = content + f'<section class="section"><div class="wrap news-grid news-archive">{listings or e(t["noNews"])}</div></section>'
     else:
@@ -388,11 +420,18 @@ def article(lang: str, post: dict) -> str:
     item = post["translations"][lang]
     title = item["title"] + (" | ReCorta（レコルタ）のお知らせ" if lang == "ja" else " | ReCorta")
     paragraphs = "".join(f"<p>{e(text)}</p>" for text in item["paragraphs"])
+    images = "".join(
+        f'''<figure><img src="/assets/news/{e(image['file'])}" width="1200" height="900"
+          loading="lazy" decoding="async" alt="{e(image['alt'][lang])}"/>
+          <figcaption>{e(image['caption'][lang])}</figcaption></figure>'''
+        for image in post.get("images", [])
+    )
+    gallery = f'<div class="article-gallery">{images}</div>' if images else ""
     body = f'''<article class="section article"><div class="wrap article-wrap">
   <p class="eyebrow">{e(post["category"][lang])}</p>
   <time class="article-date" datetime="{e(post["date"])}">{e(fmt_date(post["date"],lang))}</time>
   <h1>{e(item["title"])}</h1><p class="article-lead">{e(item["summary"])}</p>
-  <div class="article-content">{paragraphs}
+  <div class="article-content">{paragraphs}{gallery}
     <a class="button button-blue" href="{e(post["url"])}">{e(item["link"])} ↗</a>
   </div><a class="text-link article-back" href="{e(path_for(lang,"news"))}">← {e(t["articleBack"])}</a>
 </div></article>'''
@@ -431,8 +470,12 @@ def sitemap() -> str:
 
 def main() -> None:
     BRAND.mkdir(parents=True, exist_ok=True)
-    for asset in ("recorta-logo.svg", "ReCorta-Regular.otf",
-                  "yamaneko.svg", "sansyouuo.svg", "wolf.svg"):
+    for asset in ("recorta-logo.svg", "ReCorta-Regular.otf", "yamaneko.svg",
+                  "sansyouuo.svg", "wolf.svg", "akashobin.svg", "aosagi.svg",
+                  "ezoshika.svg", "fox.svg", "fox2.svg", "honndoten.svg",
+                  "kuma-baby1.svg", "kumababy2.svg", "kumababys.svg",
+                  "kumaoyako.svg", "tsukinowaguma1.svg", "tsukinowaguma2.svg",
+                  "tsushimaten.svg"):
         source = SOURCE / asset
         if source.is_file():
             shutil.copy2(source, BRAND / asset)
@@ -457,7 +500,7 @@ def main() -> None:
         f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex"/><title>ページが見つかりません | ReCorta</title>
-<link rel="stylesheet" href="/style.css?v=20261021-logo-large"/></head>
+<link rel="stylesheet" href="/style.css?v=20261027-field-notes"/></head>
 <body><main class="not-found wrap"><img src="/assets/brand/recorta-logo.svg" width="100" height="100" alt="ReCorta（レコルタ）"/>
 <p class="eyebrow">404 / NOT FOUND</p><h1>お探しのページは見つかりません。</h1>
 <a class="button button-blue" href="/">ホームへ戻る</a>

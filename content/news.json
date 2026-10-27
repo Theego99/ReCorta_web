@@ -1,6 +1,89 @@
 {
   "posts": [
     {
+      "slug": "wildlife-damage-summit-report-2026",
+      "date": "2026-10-27",
+      "category": {
+        "ja": "イベントレポート",
+        "en": "Event report",
+        "es": "Crónica del evento"
+      },
+      "url": "https://www.plando.co.jp/choju-summit/",
+      "images": [
+        {
+          "file": "summit-exhibit-display.jpg",
+          "alt": {
+            "ja": "WildCatcherの展示ポスターとReCortaのブース",
+            "en": "ReCorta's WildCatcher poster at the exhibit",
+            "es": "Póster de WildCatcher en el espacio de ReCorta"
+          },
+          "caption": {
+            "ja": "WildCatcherのカメラトラップ調査ワークフローをポスターで紹介しました。",
+            "en": "The poster introduced WildCatcher's camera-trap survey workflow.",
+            "es": "El póster presentó el flujo de trabajo de WildCatcher para estudios con cámaras trampa."
+          }
+        },
+        {
+          "file": "summit-presentation.jpg",
+          "alt": {
+            "ja": "鳥獣被害対策サミットのプレイベントで行われた企業プレゼンテーション",
+            "en": "A company presentation at the wildlife damage summit pre-event",
+            "es": "Presentación de una empresa en el acto previo de la cumbre"
+          },
+          "caption": {
+            "ja": "企業・団体のプレゼンテーションでWildCatcherを紹介しました。",
+            "en": "ReCorta introduced WildCatcher during the company presentation session.",
+            "es": "ReCorta presentó WildCatcher durante la sesión de presentaciones."
+          }
+        },
+        {
+          "file": "summit-interview.jpg",
+          "alt": {
+            "ja": "展示ブース前でインタビューを受けるReCorta代表",
+            "en": "ReCorta's representative during an interview at the exhibit booth",
+            "es": "El representante de ReCorta durante una entrevista en el espacio de exposición"
+          },
+          "caption": {
+            "ja": "展示ブースでは出展者インタビューにも参加しました。",
+            "en": "ReCorta also took part in an exhibitor interview at the booth.",
+            "es": "ReCorta también participó en una entrevista para expositores en el estand."
+          }
+        }
+      ],
+      "translations": {
+        "ja": {
+          "title": "第14回全国鳥獣被害対策サミットのプレイベントに参加しました",
+          "summary": "10月26日にAP東京八重洲で開かれたプレイベントに出展し、カメラトラップ調査を支えるWildCatcherをご紹介しました。",
+          "paragraphs": [
+            "ReCortaは2026年10月26日、AP東京八重洲で開催された「第14回全国鳥獣被害対策サミット プレイベント」に参加しました。自治体が抱える課題の共有、21の企業・団体によるプレゼンテーション、26の出展者による展示交流が行われました。",
+            "ReCortaは企業プレゼンテーションと11階の展示に参加し、WildCatcherを紹介しました。画像・動画から動物を検出して種を分類し、担当者が結果を確認・修正してCSV、Excel、JSONなどへ出力するまでを、PC上でつなぐカメラトラップ調査のワークフローをデモとポスターでご案内しました。調査映像はクラウドへ送らず、PC上で処理できます。",
+            "会場でお話しした皆さま、開催に携わった皆さまに感謝申し上げます。野生動物調査や環境の現場で役立つ道具を、これからも実務に向き合いながら開発していきます。"
+          ],
+          "link": "主催者のイベント案内を見る"
+        },
+        "en": {
+          "title": "ReCorta presents WildCatcher at the 14th National Wildlife Damage Countermeasures Summit pre-event",
+          "summary": "ReCorta exhibited WildCatcher at the summit pre-event held at AP Tokyo Yaesu on October 26, 2026.",
+          "paragraphs": [
+            "On October 26, 2026, ReCorta took part in the pre-event for the 14th National Wildlife Damage Countermeasures Summit at AP Tokyo Yaesu. The program included a discussion of challenges faced by local governments, presentations by 21 companies and organizations, and an exhibition and exchange session with 26 exhibitors.",
+            "ReCorta joined the company presentation session and exhibited on the 11th floor, introducing WildCatcher. The demo and poster showed a PC-based camera-trap workflow that detects animals in images and video, classifies species, lets a person review and correct results, and exports data to formats such as CSV, Excel, and JSON. Survey footage can be processed on the PC without being uploaded to the cloud.",
+            "Thank you to everyone we spoke with and to the organizers who made the event possible. We will keep building practical tools for wildlife surveys and environmental fieldwork."
+          ],
+          "link": "View the organizer's event information"
+        },
+        "es": {
+          "title": "ReCorta presenta WildCatcher en el acto previo de la 14.ª Cumbre Nacional sobre Daños de Fauna Silvestre",
+          "summary": "ReCorta presentó WildCatcher en el acto previo de la cumbre, celebrado en AP Tokyo Yaesu el 26 de octubre de 2026.",
+          "paragraphs": [
+            "El 26 de octubre de 2026, ReCorta participó en el acto previo de la 14.ª Cumbre Nacional sobre Medidas contra los Daños Causados por la Fauna Silvestre, celebrado en AP Tokyo Yaesu. El programa incluyó un intercambio sobre los retos de los gobiernos locales, presentaciones de 21 empresas y organizaciones, y una exposición con espacios de encuentro para 26 expositores.",
+            "ReCorta participó en la sesión de presentaciones y expuso en la planta 11 para dar a conocer WildCatcher. La demostración y el póster mostraron un flujo de trabajo para cámaras trampa que detecta animales en imágenes y vídeos, clasifica especies, permite revisar y corregir los resultados y exportar los datos a formatos como CSV, Excel y JSON. Las imágenes de campo pueden procesarse en el ordenador sin subirlas a la nube.",
+            "Gracias a todas las personas con quienes conversamos y a quienes organizaron el encuentro. Seguiremos desarrollando herramientas prácticas para los estudios de fauna silvestre y el trabajo ambiental de campo."
+          ],
+          "link": "Ver la información del organizador"
+        }
+      }
+    },
+    {
       "slug": "wildlife-damage-summit-pre-event-2026",
       "date": "2026-10-21",
       "category": {
