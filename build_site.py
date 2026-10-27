@@ -256,8 +256,8 @@ def shell(lang: str, page: str, title: str, description: str,
 {verification}  <meta property="og:image:type" content="{e(social_image_type)}"/>
   <meta name="theme-color" content="#4160ac"/>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/recorta-logo.svg"/>
-  <link rel="stylesheet" href="/style.css?v=20261027-random-orbits-7"/>
-  <script src="/site.js?v=20261027-random-orbits-7" defer></script>
+  <link rel="stylesheet" href="/style.css?v=20261027-random-orbits-9"/>
+  <script src="/site.js?v=20261027-random-orbits-9" defer></script>
   <script type="application/ld+json">{schema_json}</script>
 </head><body class="site-page" data-language="{e(lang)}">
   {loader()}
@@ -514,7 +514,7 @@ def main() -> None:
         f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex"/><title>ページが見つかりません | ReCorta</title>
-<link rel="stylesheet" href="/style.css?v=20261027-random-orbits-7"/></head>
+<link rel="stylesheet" href="/style.css?v=20261027-random-orbits-9"/></head>
 <body><main class="not-found wrap"><img src="/assets/brand/recorta-logo.svg" width="100" height="100" alt="ReCorta（レコルタ）"/>
 <p class="eyebrow">404 / NOT FOUND</p><h1>お探しのページは見つかりません。</h1>
 <a class="button button-blue" href="/">ホームへ戻る</a>
