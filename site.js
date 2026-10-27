@@ -19,11 +19,26 @@ const setAnimal = (image, name) => {
   image.src = `/assets/brand/${name}.svg`;
 };
 
+const isBear = (name) => /^(kuma|tsukinowaguma)/.test(name);
+
 const populateOrbit = (root, shouldCycle = false) => {
   if (!root || !animalAssets.length) return;
   const images = [...root.querySelectorAll(".orbit-animal img")];
   if (!images.length || animalAssets.length < images.length) return;
   const initialAnimals = shuffled(animalAssets).slice(0, images.length);
+  if (shouldCycle) {
+    [...root.querySelectorAll(".hero-track")].forEach((track) => {
+      const trackImages = [...track.querySelectorAll(".orbit-animal img")];
+      const assigned = trackImages.map((image) => initialAnimals[images.indexOf(image)]);
+      if (!trackImages.length || assigned.some(isBear)) return;
+      const availableBear = shuffled(animalAssets.filter((name) =>
+        isBear(name) && !initialAnimals.includes(name)))[0];
+      if (!availableBear) return;
+      const targetIndex = images.indexOf(
+        trackImages[Math.floor(Math.random() * trackImages.length)]);
+      initialAnimals[targetIndex] = availableBear;
+    });
+  }
   images.forEach((image, index) => setAnimal(image, initialAnimals[index]));
   if (!shouldCycle || animalAssets.length <= images.length) return;
 

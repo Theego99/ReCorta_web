@@ -128,7 +128,7 @@ p:last-child { margin-bottom: 0; }
 }
 .hero-track { position: absolute; inset: 0; pointer-events: none; animation: hero-track-turn 32s linear infinite; }
 .hero-track-outer { --orbit-radius: 40cqi; }
-.hero-track-inner { --orbit-radius: 25cqi; animation-duration: 26s; animation-direction: reverse; }
+.hero-track-inner { --orbit-radius: 20cqi; animation-duration: 26s; animation-direction: reverse; }
 .orbit-animal {
   position: absolute; top: 50%; left: 50%; width: clamp(36px, 13.4cqi, 68px); aspect-ratio: 1;
   transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(0px - var(--orbit-radius)));
