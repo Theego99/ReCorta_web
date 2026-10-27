@@ -1,5 +1,27 @@
 "use strict";
 document.documentElement.classList.add("js");
+const siteLoader = document.querySelector(".site-loader");
+if (siteLoader) {
+  siteLoader.hidden = false;
+  const startedAt = performance.now();
+  let hideScheduled = false;
+  const hideSiteLoader = () => {
+    if (hideScheduled) return;
+    hideScheduled = true;
+    const minimumTimeLeft = Math.max(0, 520 - (performance.now() - startedAt));
+    window.setTimeout(() => {
+      siteLoader.classList.add("is-done");
+      window.setTimeout(() => { siteLoader.hidden = true; }, 420);
+    }, minimumTimeLeft);
+  };
+  if (document.readyState === "complete") {
+    hideSiteLoader();
+  } else {
+    window.addEventListener("load", hideSiteLoader, { once: true });
+  }
+  window.setTimeout(hideSiteLoader, 2200);
+}
+
 const toggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#navigation");
 if (toggle && nav) {
