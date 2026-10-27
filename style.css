@@ -137,9 +137,12 @@ p:last-child { margin-bottom: 0; }
   width: 100%; height: 100%; object-fit: contain;
   rotate: calc(0deg - var(--angle));
   filter: drop-shadow(0 5px 8px rgba(25,27,34,.1));
-  animation: animal-fade 5.2s ease-in-out var(--delay) infinite, animal-counterspin 32s linear infinite;
+  opacity: 1; transform: scale(1);
+  transition: opacity 1.25s ease-in-out, transform 1.25s ease-in-out;
+  animation: animal-counterspin 32s linear infinite;
 }
-.hero-track-inner .orbit-animal img { animation-direction: normal, reverse; animation-duration: 5.2s, 26s; }
+.orbit-animal img.is-fading { opacity: 0; transform: scale(.72); }
+.hero-track-inner .orbit-animal img { animation-direction: reverse; animation-duration: 26s; }
 .hero-markers { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .66rem; letter-spacing: .16em; }
 
 .section { padding: clamp(4rem, 8vw, 7rem) 0; }
@@ -328,25 +331,15 @@ p:last-child { margin-bottom: 0; }
 .loader-orbit-outer {
   inset: 4%; border: 2px solid var(--blue); border-top-color: var(--green); border-right-color: var(--red);
 }
-.loader-orbit-inner {
-  inset: 22%; border: 1px solid rgba(65,96,172,.24); border-left-color: var(--green);
-  animation-duration: 6s; animation-direction: reverse;
-}
 .loader-logo { position: relative; z-index: 1; width: 41%; height: auto; object-fit: contain; }
-.loader-track { position: absolute; inset: 0; animation: loader-track-turn 12s linear infinite; }
-.loader-track-outer { --orbit-radius: 40cqi; }
-.loader-track-inner { --orbit-radius: 28cqi; animation-duration: 9s; animation-direction: reverse; }
-.loader-track .orbit-animal { width: clamp(30px, 13cqi, 60px); }
-.loader-track .orbit-animal img { animation: animal-fade 4.8s ease-in-out var(--delay) infinite, animal-counterspin 12s linear infinite; }
-.loader-track-inner .orbit-animal img { animation-direction: normal, reverse; animation-duration: 4.8s, 9s; }
+.loader-track { position: absolute; inset: 0; animation: loader-track-turn 14s linear infinite; }
+.loader-track-outer { --orbit-radius: 37cqi; }
+.loader-track .orbit-animal { width: clamp(48px, 18cqi, 84px); }
+.loader-track .orbit-animal img { animation-duration: 14s; }
 @keyframes loader-ring-turn { to { transform: rotate(360deg); } }
 @keyframes loader-track-turn { to { transform: rotate(360deg); } }
 @keyframes hero-track-turn { to { transform: rotate(360deg); } }
 @keyframes art-ring-turn { to { transform: rotate(360deg); } }
-@keyframes animal-fade {
-  0%, 100% { opacity: .42; transform: scale(.94); }
-  50% { opacity: 1; transform: scale(1.04); }
-}
 @keyframes animal-counterspin {
   from { rotate: calc(0deg - var(--angle)); }
   to { rotate: calc(-360deg - var(--angle)); }

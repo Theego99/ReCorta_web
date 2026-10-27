@@ -52,9 +52,8 @@ def animal_orbit(track_class: str, names: tuple[str, ...], offset: float = 0) ->
     items = []
     for index, name in enumerate(names):
         angle = offset + 360 * index / len(names)
-        delay = -((index * 0.42) % 5.2)
         items.append(
-            f'<span class="orbit-animal" style="--angle:{angle:.2f}deg;--delay:{delay:.2f}s">'
+            f'<span class="orbit-animal" style="--angle:{angle:.2f}deg">'
             f'<img src="/assets/brand/{e(name)}.svg" width="64" height="64" '
             f'alt="" aria-hidden="true" decoding="async"/></span>'
         )
@@ -219,15 +218,12 @@ def crumbs(lang: str, t: dict, label: str = "") -> str:
 
 
 def loader() -> str:
-    outer = animal_orbit("loader-track loader-track-outer", ANIMALS[::2])
-    inner = animal_orbit("loader-track loader-track-inner", ANIMALS[1::2], 22.5)
-    return f'''<div class="site-loader" hidden aria-hidden="true">
+    outer = animal_orbit("loader-track loader-track-outer", ANIMALS[:6])
+    return f'''<div class="site-loader" data-animal-assets="{e(','.join(ANIMALS))}" hidden aria-hidden="true">
   <div class="loader-stage">
     <span class="loader-orbit loader-orbit-outer"></span>
-    <span class="loader-orbit loader-orbit-inner"></span>
     <img class="loader-logo" src="/assets/brand/recorta-logo.svg" width="240" height="240" alt=""/>
     {outer}
-    {inner}
   </div>
 </div>'''
 
@@ -260,8 +256,8 @@ def shell(lang: str, page: str, title: str, description: str,
 {verification}  <meta property="og:image:type" content="{e(social_image_type)}"/>
   <meta name="theme-color" content="#4160ac"/>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/recorta-logo.svg"/>
-  <link rel="stylesheet" href="/style.css?v=20261027-orbit-motion-5"/>
-  <script src="/site.js?v=20261027-orbit-motion-5" defer></script>
+  <link rel="stylesheet" href="/style.css?v=20261027-random-orbits-7"/>
+  <script src="/site.js?v=20261027-random-orbits-7" defer></script>
   <script type="application/ld+json">{schema_json}</script>
 </head><body class="site-page" data-language="{e(lang)}">
   {loader()}
@@ -296,8 +292,8 @@ def home(lang: str, t: dict, posts: list[dict]) -> str:
         for i, (title, copy) in enumerate(t["principles"], 1)
     )
     cards = "".join(card(p, lang, t) for p in posts[:2]) or f'<p>{e(t["noNews"])}</p>'
-    outer = animal_orbit("hero-track hero-track-outer", ANIMALS[::2])
-    inner = animal_orbit("hero-track hero-track-inner", ANIMALS[1::2], 22.5)
+    outer = animal_orbit("hero-track hero-track-outer", ANIMALS[:5])
+    inner = animal_orbit("hero-track hero-track-inner", ANIMALS[5:10], 36)
     art = f'''<div class="hero-art" role="group" aria-label="{e(t["illustrationAlt"])}">
   <span class="art-ring art-ring-outer" aria-hidden="true"></span>
   <span class="art-ring art-ring-inner" aria-hidden="true"></span>
@@ -518,7 +514,7 @@ def main() -> None:
         f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex"/><title>ページが見つかりません | ReCorta</title>
-<link rel="stylesheet" href="/style.css?v=20261027-orbit-motion-5"/></head>
+<link rel="stylesheet" href="/style.css?v=20261027-random-orbits-7"/></head>
 <body><main class="not-found wrap"><img src="/assets/brand/recorta-logo.svg" width="100" height="100" alt="ReCorta（レコルタ）"/>
 <p class="eyebrow">404 / NOT FOUND</p><h1>お探しのページは見つかりません。</h1>
 <a class="button button-blue" href="/">ホームへ戻る</a>
