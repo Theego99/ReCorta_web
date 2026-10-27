@@ -138,10 +138,12 @@ p:last-child { margin-bottom: 0; }
   rotate: calc(0deg - var(--angle));
   filter: drop-shadow(0 5px 8px rgba(25,27,34,.1));
   opacity: 1; transform: scale(1);
-  transition: opacity 1.25s ease-in-out, transform 1.25s ease-in-out;
+  transition-property: opacity, transform;
+  transition-duration: 1.6s !important;
+  transition-timing-function: ease-in-out;
   animation: animal-counterspin 32s linear infinite;
 }
-.orbit-animal img.is-fading { opacity: 0; transform: scale(.72); }
+.orbit-animal img.is-fading { opacity: 0; transform: scale(.92); }
 .hero-track-inner .orbit-animal img { animation-direction: reverse; animation-duration: 26s; }
 .hero-markers { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .66rem; letter-spacing: .16em; }
 
