@@ -63,8 +63,8 @@ const populateOrbit = (root, shouldCycle = false) => {
       setAnimal(image, nextAnimal);
       nextIndex = (nextIndex + 1) % images.length;
       window.requestAnimationFrame(() => image.classList.remove("is-fading"));
-      scheduleNextAnimal(1500 + Math.random() * 900);
-    }, 1250);
+      scheduleNextAnimal(1700 + Math.random() * 700);
+    }, 1600);
   }, delay);
 
   scheduleNextAnimal(2200 + Math.random() * 900);
