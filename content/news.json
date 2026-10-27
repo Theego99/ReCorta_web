@@ -12,6 +12,8 @@
       "images": [
         {
           "file": "summit-exhibit-display.jpg",
+          "width": 1350,
+          "height": 1800,
           "alt": {
             "ja": "WildCatcherの展示ポスターとReCortaのブース",
             "en": "ReCorta's WildCatcher poster at the exhibit",
@@ -25,6 +27,8 @@
         },
         {
           "file": "summit-presentation.jpg",
+          "width": 1800,
+          "height": 1350,
           "alt": {
             "ja": "鳥獣被害対策サミットのプレイベントで行われた企業プレゼンテーション",
             "en": "A company presentation at the wildlife damage summit pre-event",
@@ -38,6 +42,8 @@
         },
         {
           "file": "summit-interview.jpg",
+          "width": 1800,
+          "height": 1350,
           "alt": {
             "ja": "展示ブース前でインタビューを受けるReCorta代表",
             "en": "ReCorta's representative during an interview at the exhibit booth",

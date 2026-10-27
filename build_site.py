@@ -16,6 +16,12 @@ LANGS = ("ja", "en", "es")
 PAGES = ("index", "about", "service", "team", "history", "news")
 SOURCE = Path(r"C:\Users\dalca\OneDrive\Recorta\assets")
 BRAND = ROOT / "assets" / "brand"
+ANIMALS = (
+    "yamaneko", "fox", "fox2", "ezoshika", "wolf", "sansyouuo",
+    "kumaoyako", "kuma-baby1", "kumababy2", "kumababys",
+    "tsukinowaguma1", "tsukinowaguma2", "honndoten", "tsushimaten",
+    "aosagi", "akashobin",
+)
 
 with (ROOT / "content" / "site.json").open(encoding="utf-8-sig") as f:
     TEXT = json.load(f)
@@ -39,6 +45,20 @@ def post_path(lang: str, slug: str) -> str:
 
 def full(path: str) -> str:
     return BASE + path
+
+
+def animal_orbit(track_class: str, names: tuple[str, ...], offset: float = 0) -> str:
+    """Place illustrations at evenly spaced, motion-safe positions around an orbit."""
+    items = []
+    for index, name in enumerate(names):
+        angle = offset + 360 * index / len(names)
+        delay = -((index * 0.42) % 5.2)
+        items.append(
+            f'<span class="orbit-animal" style="--angle:{angle:.2f}deg;--delay:{delay:.2f}s">'
+            f'<img src="/assets/brand/{e(name)}.svg" width="64" height="64" '
+            f'alt="" aria-hidden="true" decoding="async"/></span>'
+        )
+    return f'<div class="{e(track_class)}">{"".join(items)}</div>'
 
 
 def fmt_date(iso: str, lang: str) -> str:
@@ -199,15 +219,15 @@ def crumbs(lang: str, t: dict, label: str = "") -> str:
 
 
 def loader() -> str:
-    animals = "".join(
-        f'<img src="/assets/brand/{name}.svg" width="64" height="64" alt="" decoding="async"/>'
-        for name in ("yamaneko", "fox", "ezoshika", "kumaoyako", "aosagi", "sansyouuo")
-    )
+    outer = animal_orbit("loader-track loader-track-outer", ANIMALS[::2])
+    inner = animal_orbit("loader-track loader-track-inner", ANIMALS[1::2], 22.5)
     return f'''<div class="site-loader" hidden aria-hidden="true">
   <div class="loader-stage">
-    <span class="loader-orbit"></span>
+    <span class="loader-orbit loader-orbit-outer"></span>
+    <span class="loader-orbit loader-orbit-inner"></span>
     <img class="loader-logo" src="/assets/brand/recorta-logo.svg" width="240" height="240" alt=""/>
-    <div class="loader-animals">{animals}</div>
+    {outer}
+    {inner}
   </div>
 </div>'''
 
@@ -240,8 +260,8 @@ def shell(lang: str, page: str, title: str, description: str,
 {verification}  <meta property="og:image:type" content="{e(social_image_type)}"/>
   <meta name="theme-color" content="#4160ac"/>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/recorta-logo.svg"/>
-  <link rel="stylesheet" href="/style.css?v=20261027-field-notes"/>
-  <script src="/site.js?v=20261027-orbit-loader" defer></script>
+  <link rel="stylesheet" href="/style.css?v=20261027-orbit-motion-5"/>
+  <script src="/site.js?v=20261027-orbit-motion-5" defer></script>
   <script type="application/ld+json">{schema_json}</script>
 </head><body class="site-page" data-language="{e(lang)}">
   {loader()}
@@ -276,15 +296,13 @@ def home(lang: str, t: dict, posts: list[dict]) -> str:
         for i, (title, copy) in enumerate(t["principles"], 1)
     )
     cards = "".join(card(p, lang, t) for p in posts[:2]) or f'<p>{e(t["noNews"])}</p>'
+    outer = animal_orbit("hero-track hero-track-outer", ANIMALS[::2])
+    inner = animal_orbit("hero-track hero-track-inner", ANIMALS[1::2], 22.5)
     art = f'''<div class="hero-art" role="group" aria-label="{e(t["illustrationAlt"])}">
-  <span class="art-ring" aria-hidden="true"></span>
-  <img class="animal animal-cat" src="/assets/brand/yamaneko.svg" width="228" height="228" alt="{e(t["illustrationLabel"][0])}"/>
-  <img class="animal animal-wolf" src="/assets/brand/wolf.svg" width="196" height="196" alt="{e(t["illustrationLabel"][2])}"/>
-  <img class="animal animal-salamander" src="/assets/brand/sansyouuo.svg" width="176" height="176" alt="{e(t["illustrationLabel"][1])}"/>
-  <img class="animal animal-fox" src="/assets/brand/fox.svg" width="150" height="150" alt="" aria-hidden="true"/>
-  <img class="animal animal-deer" src="/assets/brand/ezoshika.svg" width="160" height="160" alt="" aria-hidden="true"/>
-  <img class="animal animal-bear" src="/assets/brand/kumaoyako.svg" width="156" height="156" alt="" aria-hidden="true"/>
-  <span class="art-caption">FIELD NOTES <i>·</i> RECORTA</span>
+  <span class="art-ring art-ring-outer" aria-hidden="true"></span>
+  <span class="art-ring art-ring-inner" aria-hidden="true"></span>
+  {outer}
+  {inner}
 </div>'''
     body = f'''<section class="hero"><div class="wrap hero-grid">
   <div class="hero-copy"><p class="eyebrow"><span class="color-dot"></span>{e(t["homeKicker"])}</p>
@@ -421,7 +439,7 @@ def article(lang: str, post: dict) -> str:
     title = item["title"] + (" | ReCorta（レコルタ）のお知らせ" if lang == "ja" else " | ReCorta")
     paragraphs = "".join(f"<p>{e(text)}</p>" for text in item["paragraphs"])
     images = "".join(
-        f'''<figure><img src="/assets/news/{e(image['file'])}" width="1200" height="900"
+        f'''<figure class="gallery-photo{' gallery-poster' if image['file'] == 'summit-exhibit-display.jpg' else ''}"><img src="/assets/news/{e(image['file'])}" width="{image.get('width', 1200)}" height="{image.get('height', 900)}"
           loading="lazy" decoding="async" alt="{e(image['alt'][lang])}"/>
           <figcaption>{e(image['caption'][lang])}</figcaption></figure>'''
         for image in post.get("images", [])
@@ -500,7 +518,7 @@ def main() -> None:
         f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex"/><title>ページが見つかりません | ReCorta</title>
-<link rel="stylesheet" href="/style.css?v=20261027-field-notes"/></head>
+<link rel="stylesheet" href="/style.css?v=20261027-orbit-motion-5"/></head>
 <body><main class="not-found wrap"><img src="/assets/brand/recorta-logo.svg" width="100" height="100" alt="ReCorta（レコルタ）"/>
 <p class="eyebrow">404 / NOT FOUND</p><h1>お探しのページは見つかりません。</h1>
 <a class="button button-blue" href="/">ホームへ戻る</a>
