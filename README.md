@@ -26,4 +26,4 @@ Every language version has a self-referencing canonical, hreflang alternates, a 
 
 The company legal name is 合同会社ReCorta; its registered name must not be changed to a stock company. The representative member is 辰巳海斗. Publish only the confirmed 13-digit Japanese corporate number 1012703003624; do not add the separate company registry number or links to the national registry search. No private correspondence, registration documents, personal home address, seals, banking information, customer data or licence keys belong in this repository.
 
-The incorporation date is September 9, 2026. WildCatcher 2.2.6 is the latest release for Windows and macOS as of October 21, 2026. Wildpass is an EIA toolkit under development and pilot evaluation; do not describe it as a released service, a legal compliance check or automated expert decision.
+The incorporation date is September 9, 2026. WildCatcher 2.2.7 is the latest release for Windows and macOS as of November 9, 2026. Wildpass is an EIA toolkit under development and pilot evaluation; do not describe it as a released service, a legal compliance check or automated expert decision.

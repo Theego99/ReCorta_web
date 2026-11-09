@@ -1,6 +1,45 @@
 {
   "posts": [
     {
+      "slug": "wildcatcher-2-2-7",
+      "date": "2026-11-09",
+      "category": {
+        "ja": "製品アップデート",
+        "en": "Product update",
+        "es": "Actualización de producto"
+      },
+      "url": "https://github.com/Theego99/WildCatcher-releases/releases/latest",
+      "translations": {
+        "ja": {
+          "title": "WildCatcher 2.2.7を公開しました",
+          "summary": "Windows版・macOS版を2.2.7に更新しました。再解析を再開したとき、タグ変更後のファイル名とパスをCSV・Excelに正しく反映します。",
+          "paragraphs": [
+            "WildCatcher 2.2.7を公開しました。保存済みの解析結果を再利用してレポートを作る場合、分類タグの変更や削除後も、現在のファイル名とパスがCSV・Excelに反映されるよう修正しました。",
+            "Windows版とmacOS版（Apple Silicon・Intel）を提供しています。アプリ内の「更新」から更新するか、公式配布ページで各OS用のダウンロードとリリースノートをご確認ください。"
+          ],
+          "link": "WildCatcher 2.2.7のリリースノートを見る"
+        },
+        "en": {
+          "title": "WildCatcher 2.2.7 is available",
+          "summary": "WildCatcher 2.2.7 is available for Windows and macOS. Resumed CSV and Excel reports now reflect current filenames and paths after files are retagged.",
+          "paragraphs": [
+            "WildCatcher 2.2.7 is now available. When saved analysis results are reused to create a report, CSV and Excel exports now use the current filenames and paths after classification tags have been changed or removed.",
+            "Packages are available for Windows and macOS (Apple Silicon and Intel). Update from inside the app, or visit the official release page for downloads and full release notes."
+          ],
+          "link": "Read the WildCatcher 2.2.7 release notes"
+        },
+        "es": {
+          "title": "WildCatcher 2.2.7 ya está disponible",
+          "summary": "WildCatcher 2.2.7 está disponible para Windows y macOS. Los informes CSV y Excel reanudados reflejan los nombres y rutas actuales después de cambiar las etiquetas.",
+          "paragraphs": [
+            "WildCatcher 2.2.7 ya está disponible. Al reutilizar resultados de análisis guardados para crear un informe, las exportaciones CSV y Excel ahora utilizan los nombres y las rutas actuales después de cambiar o quitar etiquetas de clasificación.",
+            "Hay paquetes para Windows y macOS (Apple Silicon e Intel). Actualiza desde la aplicación o visita la página oficial de lanzamientos para descargar la versión y consultar las notas completas."
+          ],
+          "link": "Leer las notas de WildCatcher 2.2.7"
+        }
+      }
+    },
+    {
       "slug": "wildlife-damage-summit-report-2026",
       "date": "2026-10-27",
       "category": {
