@@ -11,8 +11,9 @@ from xml.dom import minidom
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://www.recorta.jp"
-TODAY = "2026-10-27"
+TODAY = "2026-11-09"
 LANGS = ("ja", "en", "es")
+ASSET_VERSION = "20261109-company-values-mobile-nav"
 PAGES = ("index", "about", "service", "team", "history", "news")
 SOURCE = Path(r"C:\Users\dalca\OneDrive\Recorta\assets")
 BRAND = ROOT / "assets" / "brand"
@@ -160,6 +161,7 @@ def schema(lang: str, page: str, title: str, description: str,
 
 
 def header(lang: str, current: str, t: dict) -> str:
+    menu_label = e(t["menu"])
     current_labels = dict(zip(PAGES, t["nav"]))
     nav = "".join(
         f'<a href="{e(path_for(lang, page))}"'
@@ -183,7 +185,9 @@ def header(lang: str, current: str, t: dict) -> str:
     <div class="header-actions">
       <nav class="language-switch" aria-label="{e(t["langLabel"])}">{lang_buttons}</nav>
       <button class="menu-toggle" type="button" aria-controls="navigation"
-        aria-expanded="false" hidden>{e(t["menu"])}</button>
+        aria-label="{menu_label}" aria-expanded="false" hidden>
+        <span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
     </div>
   </div>
   <nav id="navigation" class="primary-nav" aria-label="{e(t["nav"][0])}">{nav}</nav>
@@ -203,8 +207,7 @@ def footer(lang: str, t: dict) -> str:
   <div><h2>{e(t["contact"])}</h2>
     <a href="mailto:diegoalonsojapan@gmail.com">diegoalonsojapan@gmail.com</a>
     <p>{e(t["locationValue"])}</p></div>
-</div><div class="wrap footer-bottom"><span>{e(t["copyright"])}</span>
-  <span>Field science &amp; technology</span></div></footer>'''
+</div><div class="wrap footer-bottom"><span>{e(t["copyright"])}</span></div></footer>'''
 
 
 def crumbs(lang: str, t: dict, label: str = "") -> str:
@@ -256,8 +259,8 @@ def shell(lang: str, page: str, title: str, description: str,
 {verification}  <meta property="og:image:type" content="{e(social_image_type)}"/>
   <meta name="theme-color" content="#4160ac"/>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/recorta-logo.svg"/>
-  <link rel="stylesheet" href="/style.css?v=20261027-random-orbits-10"/>
-  <script src="/site.js?v=20261027-random-orbits-10" defer></script>
+  <link rel="stylesheet" href="/style.css?v={ASSET_VERSION}"/>
+  <script src="/site.js?v={ASSET_VERSION}" defer></script>
   <script type="application/ld+json">{schema_json}</script>
 </head><body class="site-page" data-language="{e(lang)}">
   {loader()}
@@ -286,11 +289,7 @@ def intro(label: str, title: str, copy: str, img: str, alt: str) -> str:
 
 
 def home(lang: str, t: dict, posts: list[dict]) -> str:
-    principles = "".join(
-        f'<article class="principle"><span class="principle-index">0{i}</span>'
-        f'<h3>{e(title)}</h3><p>{e(copy)}</p></article>'
-        for i, (title, copy) in enumerate(t["principles"], 1)
-    )
+    principles = values_cards(t)
     cards = "".join(card(p, lang, t) for p in posts[:2]) or f'<p>{e(t["noNews"])}</p>'
     outer = animal_orbit("hero-track hero-track-outer", ANIMALS[:5])
     inner = animal_orbit("hero-track hero-track-inner", ANIMALS[5:10], 36)
@@ -307,7 +306,7 @@ def home(lang: str, t: dict, posts: list[dict]) -> str:
     <div class="button-row"><a class="button button-blue" href="{e(path_for(lang,"service"))}">{e(t["ctaProducts"])} <span aria-hidden="true">→</span></a>
       <a class="button button-outline" href="{e(path_for(lang,"about"))}">{e(t["ctaAbout"])}</a></div>
   </div>{art}
-</div><div class="wrap hero-markers"><span>FIELD SCIENCE</span><span>WILDLIFE</span><span>ENVIRONMENT</span></div></section>
+</div><div class="wrap hero-markers">{"".join(f"<span>{e(marker)}</span>" for marker in t["homeMarkers"])}</div></section>
 <section class="section products"><div class="wrap"><header class="section-heading">
   <p class="eyebrow">{e(t["productsKicker"])}</p><h2>{e(t["productsTitle"])}</h2><p>{e(t["productsIntro"])}</p>
 </header><div class="product-grid">
@@ -340,6 +339,14 @@ def home(lang: str, t: dict, posts: list[dict]) -> str:
     return shell(lang, "index", t["homeTitle"], t["homeDesc"], body)
 
 
+def values_cards(t: dict) -> str:
+    return "".join(
+        f'<article class="principle"><span class="principle-index">0{i}</span>'
+        f'<h3>{e(title)}</h3><p>{e(copy)}</p></article>'
+        for i, (title, copy) in enumerate(t["principles"], 1)
+    )
+
+
 def page(lang: str, key: str, t: dict, posts: list[dict]) -> str:
     if key == "index":
         return home(lang, t, posts)
@@ -356,9 +363,18 @@ def page(lang: str, key: str, t: dict, posts: list[dict]) -> str:
                 (t["emailLabel"], "diegoalonsojapan@gmail.com"),
             ]
         )
-        body = content + f'''<section class="section"><div class="wrap about-grid">
+        body = content + f'''<section class="section purpose-section"><div class="wrap">
+  <header class="section-heading"><p class="eyebrow">{e(t["purposeKicker"])}</p><h2>{e(t["purposeTitle"])}</h2></header>
+  <div class="purpose-grid">
+    <article class="purpose-card"><p class="eyebrow">{e(t["missionLabel"])}</p><p>{e(t["missionText"])}</p></article>
+    <article class="purpose-card"><p class="eyebrow">{e(t["visionLabel"])}</p><p>{e(t["visionText"])}</p></article>
+  </div>
+</div></section><section class="section values values-about"><div class="wrap values-grid">
+  <div><p class="eyebrow">{e(t["principlesKicker"])}</p><h2>{e(t["principlesTitle"])}</h2></div>
+  <div class="principles">{values_cards(t)}</div>
+</div></section><section class="section"><div class="wrap about-grid">
   <div><p class="eyebrow">{e(t["companyDetails"])}</p><h2 class="latin">ReCorta</h2>
-    <p class="lead">{e(t["aboutText"])}</p><p>{e(t["homeDesc"])}</p>
+    <p class="lead">{e(t["aboutText"])}</p>
     <div class="inline-links"><a class="text-link" href="{e(path_for(lang,"team"))}">{e(t["teamLink"])} →</a>
       <a class="text-link" href="{e(path_for(lang,"history"))}">{e(t["historyLink"])} →</a></div>
   </div><dl class="profile">{rows}</dl>
@@ -514,7 +530,7 @@ def main() -> None:
         f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex"/><title>ページが見つかりません | ReCorta</title>
-<link rel="stylesheet" href="/style.css?v=20261027-random-orbits-10"/></head>
+<link rel="stylesheet" href="/style.css?v={ASSET_VERSION}"/></head>
 <body><main class="not-found wrap"><img src="/assets/brand/recorta-logo.svg" width="100" height="100" alt="ReCorta（レコルタ）"/>
 <p class="eyebrow">404 / NOT FOUND</p><h1>お探しのページは見つかりません。</h1>
 <a class="button button-blue" href="/">ホームへ戻る</a>
